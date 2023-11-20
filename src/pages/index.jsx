@@ -34,7 +34,7 @@ export async function getStaticProps() {
   }
 
   return {
-    revalidate: 1200,
+    revalidate: 60,
     props: {
       seo,
       home,
