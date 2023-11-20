@@ -1,7 +1,7 @@
 import { wordpressApi } from './api'
 import { BlogApi } from './graphql/Blog'
 import { HomeApi } from './graphql/Home'
-import { ProjetosApi } from './graphql/projetos'
+import { ProjetosApi } from './graphql/Projetos'
 import { SobreApi } from './graphql/Sobre'
 import { tecnologiasApi } from './graphql/Tecnologias'
 
