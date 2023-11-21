@@ -39,7 +39,6 @@ export const LayoutBanner = styled(Container)`
     h2,
     p {
       font-weight: 400;
-      margin-bottom: 30px;
     }
   }
 
@@ -68,7 +67,7 @@ export const LayoutBanner = styled(Container)`
 `
 
 export const ButtonLayout = styled.div`
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;

@@ -63,7 +63,7 @@ export const LayoutBanner = styled(Container)`
 `
 
 export const ButtonLayout = styled(Button)`
-  display: block;
+  display: inline-flex;
   margin: auto;
 `
 

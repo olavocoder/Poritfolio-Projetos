@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 import Image from 'next/image'
 
 import { ArrowIconDark } from '../../../assets/icons'
@@ -6,17 +8,23 @@ import { size } from '../../../styles/utils/devices'
 import * as S from './styles'
 
 export default function LayoutSlide({ color, data, direction, dataSlide }) {
-  console.log('data', dataSlide)
   const slideTitle = data?.slug?.current?.replace('-', '_')
   const { width } = useWindowSize()
-
+  const [url, setUrl] = useState()
+  useEffect(() => {
+    if (data?.title == 'Sobre') {
+      setUrl('/curriculo.pdf')
+    } else {
+      setUrl('/')
+    }
+  }, [])
   return (
     <S.LayoutWrapper back={color}>
       <S.LayoutBanner direction={direction}>
         <div className="layout layout-area">
           <h2>{data?.title}</h2>
           <p>{data?.description}</p>
-          <S.ButtonLayout>Saiba Mais</S.ButtonLayout>
+          <S.ButtonLayout href={url}>Saiba Mais</S.ButtonLayout>
           {dataSlide && (
             <S.SlideTextWrapper>
               <div className={`slide${slideTitle}_left slideArrow`}>
