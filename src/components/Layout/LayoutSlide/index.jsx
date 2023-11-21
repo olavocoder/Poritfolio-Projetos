@@ -6,9 +6,10 @@ import { size } from '../../../styles/utils/devices'
 import * as S from './styles'
 
 export default function LayoutSlide({ color, data, direction, dataSlide }) {
-  console.log('data', data?.slug?.current)
+  console.log('data', dataSlide)
   const slideTitle = data?.slug?.current?.replace('-', '_')
   const { width } = useWindowSize()
+
   return (
     <S.LayoutWrapper back={color}>
       <S.LayoutBanner direction={direction}>
@@ -44,6 +45,24 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
                 />
               </div>
             </S.SlideTextWrapper>
+          )}
+          {dataSlide && (
+            <S.SkillsWrapper>
+              <div className={`slideSkills${slideTitle}`}>
+                {dataSlide?.map((projeto, i) => (
+                  <div key={i} className="layout-skills">
+                    {projeto?.skills?.map((item, index) => (
+                      <Image
+                        key={index}
+                        src={item.icons?.asset?.url}
+                        width={100}
+                        height={35}
+                      />
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </S.SkillsWrapper>
           )}
         </div>
         <div className={`layout layout-img slideImg${slideTitle}`}>

@@ -16,8 +16,12 @@ export const SetupTns = ({ className }) => {
                 slideBy: 'page',
                 navContainer: false,
                 loop: true,
-                prevButton: '.${className.replace('Img', '')}_left',
-                nextButton: '.${className.replace('Img', '')}_right',
+                prevButton: '.${className
+                  .replace('Img', '')
+                  .replace('Skills', '')}_left',
+                nextButton: '.${className
+                  .replace('Img', '')
+                  .replace('Skills', '')}_right',
                 controls: true,
               });
             `

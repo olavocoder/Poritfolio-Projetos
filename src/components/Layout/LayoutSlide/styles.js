@@ -56,7 +56,6 @@ export const LayoutBanner = styled(Container)`
     .layout-area {
       width: 400px;
     }
-    text-align: left;
 
     ${({ direction }) =>
       `flex-direction: ${direction == 'left' ? 'row' : 'row-reverse'};`}
@@ -70,13 +69,14 @@ export const ButtonLayout = styled(Button)`
 
 export const SlideTextWrapper = styled.div`
   display: flex;
-  .tns-outer {
-    width: 50%;
-  }
   justify-content: space-between;
   align-items: center;
   height: max-content;
   margin: 40px 0;
+
+  .tns-outer {
+    width: 50%;
+  }
 
   .slideWrapper {
     width: 300px;
@@ -95,8 +95,20 @@ export const SlideTextWrapper = styled.div`
       transform: rotate(180deg);
     }
   }
+
   @media ${devices.tabletL} {
     margin: 40px 0 0;
-    margin-top: 200px;
+    margin-top: 150px;
+  }
+`
+
+export const SkillsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  width: 100%;
+  img {
+    padding-right: 10px;
+    object-fit: contain;
   }
 `

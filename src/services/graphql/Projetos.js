@@ -13,6 +13,19 @@ export const ProjetosApi = gql`
           url
         }
       }
+      skills {
+        icons {
+          asset {
+            url
+            metadata {
+              dimensions {
+                width
+                height
+              }
+            }
+          }
+        }
+      }
     }
   }
 `

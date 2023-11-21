@@ -25,6 +25,12 @@ export default function HomeTemplate({
     return `slideImg${slideReplace}`
   })
 
+  const titleSlidesSkills = tecnologias?.map((item) => {
+    const slideReplace = item?.slug?.current?.replace('-', '_')
+    return `slideSkills${slideReplace}`
+  })
+
+  console.log('projetos', projetos)
   // Itera sobre cada tecnologia
   tecnologias.forEach((tecnologia) => {
     tecnologia = tecnologia?.title
@@ -40,7 +46,9 @@ export default function HomeTemplate({
   })
 
   return (
-    <Base slideClass={[...titleSlides, ...titleSlidesImgs]}>
+    <Base
+      slideClass={[...titleSlides, ...titleSlidesImgs, ...titleSlidesSkills]}
+    >
       <S.Modal>
         <div>
           <ul>
