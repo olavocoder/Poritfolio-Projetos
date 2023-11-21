@@ -9,13 +9,13 @@ export default function LayoutBanner({ background, data, direction }) {
   console.log('data', data?.slug?.current)
   const slideTitle = data?.slug?.current?.replace('-', '_')
   const { width } = useWindowSize()
-
   return (
     <S.LayoutWrapper back={background}>
       <S.LayoutBanner direction={direction}>
         <div className="layout layout-area">
           <h2>{data?.name}</h2>
           <p>{data?.description}</p>
+
           <S.ButtonLayout>
             <p>Acesse</p>
             <ArrowIconDark

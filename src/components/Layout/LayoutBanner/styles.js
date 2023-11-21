@@ -65,12 +65,13 @@ export const LayoutBanner = styled(Container)`
     }
   }
 `
-
+//ativar o opacity quando o blog estiver pronto
 export const ButtonLayout = styled.div`
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+  opacity: 0;
 `
 
 export const SlideTextWrapper = styled.div`
