@@ -103,12 +103,16 @@ export const SlideTextWrapper = styled.div`
 `
 
 export const SkillsWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
+  margin: 30px 0;
   width: 100%;
   img {
     padding-right: 10px;
     object-fit: contain;
+  }
+
+  @media ${devices.tabletL} {
+    margin: 30px 0 0;
+    display: flex;
+    justify-content: center;
   }
 `
