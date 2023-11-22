@@ -11,8 +11,11 @@ export const HomeApi = gql`
         }
       }
       Social {
-        asset {
-          url
+        url
+        icon {
+          asset {
+            url
+          }
         }
       }
     }

@@ -14,7 +14,7 @@ export default function HomeTemplate({
   blog
 }) {
   const projetosPorTecnologia = []
-  console.log('blog', blog)
+  console.log('blog', home)
   const titleSlides = tecnologias?.map((item) => {
     const slideReplace = item?.slug?.current?.replace('-', '_')
     return `slide${slideReplace}`
@@ -65,12 +65,9 @@ export default function HomeTemplate({
             <h1>{home?.name}</h1>
             <div className="bannerItems-social">
               {home?.Social?.map((img, index) => (
-                <Image
-                  key={index}
-                  src={img?.asset?.url}
-                  width={47}
-                  height={47}
-                />
+                <a href={img?.url} key={index} target="_blank" rel="noreferrer">
+                  <Image src={img?.icon?.asset?.url} width={47} height={47} />
+                </a>
               ))}
             </div>
           </div>

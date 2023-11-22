@@ -39,6 +39,7 @@ export const LayoutBanner = styled(Container)`
     h2,
     p {
       margin-bottom: 30px;
+      line-height: 1.8;
     }
   }
 
