@@ -66,7 +66,7 @@ export default function HomeTemplate({
             <div className="bannerItems-social">
               {home?.Social?.map((img, index) => (
                 <a href={img?.url} key={index} target="_blank" rel="noreferrer">
-                  <Image src={img?.icon?.asset?.url} width={47} height={47} />
+                  <Image src={img?.icon?.asset?.url} width={37} height={37} />
                 </a>
               ))}
             </div>

@@ -42,9 +42,8 @@ export const ContentBanner = styled(Container)`
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 15px;
+      gap: 35px;
       img {
-        background-color: white;
         border-radius: 100%;
       }
     }

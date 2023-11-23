@@ -50,6 +50,12 @@ export const LayoutBanner = styled(Container)`
     }
   }
 
+  .layout-img {
+    &.slideImgundefined {
+      width: auto;
+    }
+  }
+
   @media ${devices.tabletL} {
     .tns-outer {
       width: 50%;
@@ -65,7 +71,7 @@ export const LayoutBanner = styled(Container)`
 
 export const ButtonLayout = styled(Button)`
   display: inline-flex;
-  margin: auto;
+  margin: 0 auto 40px;
 `
 
 export const SlideTextWrapper = styled.div`
@@ -73,7 +79,6 @@ export const SlideTextWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: max-content;
-  margin: 40px 0;
 
   .tns-outer {
     width: 50%;
