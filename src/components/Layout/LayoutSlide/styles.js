@@ -79,7 +79,10 @@ export const SlideTextWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: max-content;
-
+  a {
+    color: white;
+    text-decoration: none;
+  }
   .tns-outer {
     width: 50%;
   }
@@ -115,7 +118,9 @@ export const SkillsWrapper = styled.div`
     padding-right: 10px;
     object-fit: contain;
   }
-
+  .tns-outer {
+    width: auto;
+  }
   @media ${devices.tabletL} {
     margin: 30px 0 0;
     display: flex;

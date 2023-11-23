@@ -4,6 +4,7 @@ export const ProjetosApi = gql`
   query Projetos {
     allProjetos {
       title
+      gitLink
       tecnologias {
         title
         description

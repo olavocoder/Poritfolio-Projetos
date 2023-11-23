@@ -24,7 +24,9 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
         <div className="layout layout-area">
           <h2>{data?.title}</h2>
           <p>{data?.description}</p>
-          <S.ButtonLayout href={url}>Saiba Mais</S.ButtonLayout>
+          {data?.title == 'Sobre' && (
+            <S.ButtonLayout href={url}>Saiba Mais</S.ButtonLayout>
+          )}
           {dataSlide && (
             <S.SlideTextWrapper>
               <div className={`slide${slideTitle}_left slideArrow`}>
@@ -42,7 +44,9 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
                     style={{ color: color == 'black' ? '#fff' : '#000' }}
                     key={index}
                   >
-                    {item?.title}
+                    <a href={item?.gitLink} target="__blank">
+                      {item?.title}
+                    </a>
                   </div>
                 ))}
               </div>
@@ -85,8 +89,8 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
           {dataSlide &&
             dataSlide?.map((item, index) => (
               <Image
-                className={`slideImg${slideTitle}`}
                 key={index}
+                className={`slideImg slideImg${slideTitle}`}
                 src={item?.mainImage?.asset?.url}
                 width={width < size.tablet ? 180 : 580}
                 height={width < size.tablet ? 180 : 580}
