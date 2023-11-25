@@ -10,8 +10,7 @@ export const SetupTns = ({ className }) => {
             var ${className} = tns({
                 container: '.${className}',
                 items: 1,
-                loop: false,
-                autoPlay: false,
+                autoplay: true,
                 controls: true,
                 slideBy: 'page',
                 navContainer: false,
@@ -22,8 +21,7 @@ export const SetupTns = ({ className }) => {
                 nextButton: '.${className
                   .replace('Img', '')
                   .replace('Skills', '')}_right',
-                controls: true,
-              });
+\              });
             `
       }}
     />

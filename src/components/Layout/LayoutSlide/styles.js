@@ -5,6 +5,12 @@ import Button from '../../Button'
 import { Container } from '../../Container'
 
 export const LayoutWrapper = styled.div`
+  button {
+    &[data-action='stop'],
+    &[data-action='start'] {
+      display: none;
+    }
+  }
   padding: 40px 0;
   ${({ back }) => `background-color: ${back};`}
   ${({ back }) => `color: ${back == 'white' ? 'black' : 'white'};`}
