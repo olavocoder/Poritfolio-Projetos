@@ -60,6 +60,7 @@ export const LayoutBanner = styled(Container)`
       text-align: center;
       display: block;
       img {
+        cursor: pointer;
         object-fit: cover;
       }
     }

@@ -45,6 +45,10 @@ export const ContentBanner = styled(Container)`
       gap: 35px;
       img {
         border-radius: 100%;
+        transition: all 0.3s;
+        &:hover {
+          transform: translate(0, -7px);
+        }
       }
     }
     @media ${devices.tabletL} {

@@ -13,7 +13,7 @@ export const LayoutWrapper = styled.div`
   }
   padding: 40px 0;
   ${({ back }) => `background-color: ${back};`}
-  ${({ back }) => `color: ${back == 'white' ? 'black' : 'white'};`}
+  ${({ back }) => `color: ${back == 'white' ? '#0e0e0e' : 'white'};`}
   @media ${devices.tabletL} {
     height: 100vh;
     padding: 0;
@@ -21,7 +21,7 @@ export const LayoutWrapper = styled.div`
 `
 
 export const LayoutBanner = styled(Container)`
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +53,7 @@ export const LayoutBanner = styled(Container)`
     img {
       object-fit: cover;
       border-radius: 30px;
+      transition: all 0.3s;
     }
   }
 
@@ -63,6 +64,7 @@ export const LayoutBanner = styled(Container)`
   }
 
   @media ${devices.tabletL} {
+    display: flex;
     .tns-outer {
       width: 50%;
     }
@@ -77,7 +79,7 @@ export const LayoutBanner = styled(Container)`
 
 export const ButtonLayout = styled(Button)`
   display: inline-flex;
-  margin: 0 auto 40px;
+  margin: 0 10px 40px;
 `
 
 export const SlideTextWrapper = styled.div`
@@ -122,7 +124,12 @@ export const SkillsWrapper = styled.div`
   width: 100%;
   img {
     padding-right: 10px;
+    padding-top: 7px;
     object-fit: contain;
+    transition: all 0.3s;
+    &:hover {
+      transform: translate(0, -7px);
+    }
   }
   .tns-outer {
     width: auto;
@@ -131,5 +138,27 @@ export const SkillsWrapper = styled.div`
     margin: 30px 0 0;
     display: flex;
     justify-content: center;
+  }
+`
+
+export const SlideImg = styled.div`
+  ${({ back, width, height }) => `
+    background-image: url(${back});
+    width: ${width};
+    height: ${height};
+    background-size:100%;
+  `}
+  display: inline-block;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 30px;
+  transition: all 0.3s;
+  background-color: rgba(14, 14, 14, 0.69);
+  box-shadow: inset -1px 0px 30px 7px rgb(15 15 15 / 82%);
+  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
+  border: 1px solid rgba(48, 48, 48, 0.71);
+  &:hover {
+    border: 1px solid rgb(92 92 92 / 71%);
   }
 `

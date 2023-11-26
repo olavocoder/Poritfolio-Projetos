@@ -25,7 +25,7 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
           <h2>{data?.title}</h2>
           <p>{data?.description}</p>
           {data?.title == 'Sobre' && (
-            <S.ButtonLayout href={url}>Saiba Mais</S.ButtonLayout>
+            <S.ButtonLayout href={url}>Ver mais</S.ButtonLayout>
           )}
           {dataSlide && (
             <S.SlideTextWrapper>
@@ -68,7 +68,7 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
                         key={index}
                         src={item.icons?.asset?.url}
                         width={100}
-                        height={35}
+                        height={42}
                       />
                     ))}
                   </div>
@@ -88,12 +88,12 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
           )}
           {dataSlide &&
             dataSlide?.map((item, index) => (
-              <Image
+              <S.SlideImg
                 key={index}
                 className={`slideImg slideImg${slideTitle}`}
-                src={item?.mainImage?.asset?.url}
-                width={width < size.tablet ? 180 : 580}
-                height={width < size.tablet ? 180 : 580}
+                back={item?.mainImage?.asset?.url}
+                width={`${width < size.tablet ? 180 : 580}px`}
+                height={`${width < size.tablet ? 180 : 580}px`}
               />
             ))}
         </div>
