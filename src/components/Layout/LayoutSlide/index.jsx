@@ -24,8 +24,12 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
         <div className="layout layout-area">
           <h2>{data?.title}</h2>
           <p>{data?.description}</p>
-          {data?.title == 'Sobre' && (
+          {data?.title == 'Sobre' ? (
             <S.ButtonLayout href={url}>Ver mais</S.ButtonLayout>
+          ) : (
+            <S.ButtonLayout href={'https://github.com/olavocoder'}>
+              Acessar repositório
+            </S.ButtonLayout>
           )}
           {dataSlide && (
             <S.SlideTextWrapper>
