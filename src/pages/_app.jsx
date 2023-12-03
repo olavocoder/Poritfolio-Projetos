@@ -46,6 +46,10 @@ function App({ Component, pageProps }) {
         <meta name="application-name" content="Blog" />
         <meta name="description" content="Blog" />
         <meta name="keywords" content="keywords necessárias para o projeto" />
+        <meta
+          name="google-site-verification"
+          content="noz88T41NvGV2_gkHk_9RgQKnNY6NWxL3cI3Irwv3bE"
+        />
       </Head>
       <GlobalFonts />
       <Component {...pageProps} />

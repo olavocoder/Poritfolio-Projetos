@@ -18,12 +18,8 @@ const Base = ({ children, seo, slideClass }) => {
     <S.Wrapper>
       {seoTreated && (
         <NextSeo
-          title={seoTreated.title || process.env.NEXT_PUBLIC_WORDPRESS_API_URL}
-          description={
-            seoTreated.description || process.env.NEXT_PUBLIC_WORDPRESS_API_URL
-          }
-          {...(seoTreated.canonical && { canonical: seoTreated.canonical })}
-          {...(seoTreated.noindex && { noindex: seoTreated.noindex })}
+          title={process.env.NEXT_PUBLIC_DEFAULT_TITLE}
+          description={process.env.NEXT_PUBLIC_DEFAULT_DESCRIPTION}
         />
       )}
 
