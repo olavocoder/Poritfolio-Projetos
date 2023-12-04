@@ -27,7 +27,10 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
           {data?.title == 'Sobre' ? (
             <S.ButtonLayout href={url}>Ver mais</S.ButtonLayout>
           ) : (
-            <S.ButtonLayout href={'https://github.com/olavocoder'}>
+            <S.ButtonLayout
+              className="repository"
+              href={'https://github.com/olavocoder'}
+            >
               Acessar repositório
             </S.ButtonLayout>
           )}
@@ -48,7 +51,11 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
                     style={{ color: color == 'black' ? '#fff' : '#000' }}
                     key={index}
                   >
-                    <a href={item?.gitLink} target="__blank">
+                    <a
+                      className={item?.gitLink}
+                      href={item?.gitLink}
+                      target="__blank"
+                    >
                       {item?.title}
                     </a>
                   </div>
@@ -71,6 +78,7 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
                       <Image
                         key={index}
                         src={item.icons?.asset?.url}
+                        alt={item?.altText}
                         width={100}
                         height={42}
                       />
@@ -86,6 +94,7 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
             <Image
               className="slideImg"
               src={data?.banner?.asset?.url}
+              alt={data?.altText}
               width={width < size.laptopM ? 480 : 580}
               height={width < size.laptopM ? 480 : 580}
             />

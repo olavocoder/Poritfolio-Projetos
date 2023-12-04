@@ -26,7 +26,12 @@ export default function LayoutBanner({ background, data, direction }) {
         </div>
         <div className={`layout layout-img slideImg${slideTitle}`}>
           {data?.banner && (
-            <Image src={data?.banner?.asset?.url} width={470} height={590} />
+            <Image
+              src={data?.banner?.asset?.url}
+              alt={data?.altText}
+              width={470}
+              height={590}
+            />
           )}
         </div>
       </S.LayoutBanner>

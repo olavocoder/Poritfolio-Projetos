@@ -68,6 +68,7 @@ export default function AboutTemplate({
                 <Image
                   key={index}
                   src={img?.asset?.url}
+                  alt={img?.asset?.altText}
                   width={47}
                   height={47}
                 />
