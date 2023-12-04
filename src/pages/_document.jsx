@@ -35,10 +35,7 @@ export default class MyDocument extends Document {
       <Html lang="pt-BR">
         <Head>
           <Analytics />
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css"
-          />
+          <link rel="stylesheet" href="/tiny-slider.css" />
         </Head>
         <body>
           <Main />
