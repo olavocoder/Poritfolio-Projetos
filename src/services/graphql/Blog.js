@@ -6,9 +6,11 @@ export const BlogApi = gql`
       title
       name
       description
+      altText
       banner {
         asset {
           url
+          altText
         }
       }
     }

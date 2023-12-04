@@ -5,16 +5,20 @@ export const HomeApi = gql`
     allPaginas(where: { title: { eq: "Home" } }) {
       name
       job
+      altText
       banner {
         asset {
           url
+          altText
         }
       }
       Social {
         url
+        altText
         icon {
           asset {
             url
+            altText
           }
         }
       }

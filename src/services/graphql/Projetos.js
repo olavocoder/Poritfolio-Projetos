@@ -12,12 +12,15 @@ export const ProjetosApi = gql`
       mainImage {
         asset {
           url
+          altText
         }
       }
       skills {
+        altText
         icons {
           asset {
             url
+            altText
             metadata {
               dimensions {
                 width
