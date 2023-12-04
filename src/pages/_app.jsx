@@ -40,8 +40,6 @@ function App({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <Head>
         <link rel="icon" href="/img/favicon.ico" />
-        <link rel="shortcut icon" href="/img/icon-512.png" />
-        <link rel="apple-touch-icon" href="/img/icon-512.png" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="application-name" content="Blog" />
         <meta name="description" content="Blog" />

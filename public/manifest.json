@@ -7,17 +7,5 @@
   "scope": "/",
   "start_url": "/",
   "lang": "pt-BR",
-  "orientation": "any",
-  "icons": [
-    {
-      "src": "/img/icon-192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/img/icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ]
+  "orientation": "any"
 }
