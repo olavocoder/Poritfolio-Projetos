@@ -41,9 +41,9 @@ function App({ Component, pageProps }) {
       <Head>
         <link rel="icon" href="/img/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="canonical" href="https://poritfolio-projetos.vercel.app" />
         <meta name="application-name" content="Blog" />
         <meta name="description" content="Blog" />
-        <meta name="keywords" content="keywords necessárias para o projeto" />
         <meta
           name="google-site-verification"
           content="noz88T41NvGV2_gkHk_9RgQKnNY6NWxL3cI3Irwv3bE"
