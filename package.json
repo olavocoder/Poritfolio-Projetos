@@ -23,6 +23,7 @@
     "@apollo/client": "^3.7.1",
     "@builder.io/partytown": "^0.6.4",
     "@loadable/component": "^5.15.2",
+    "@sanity/block-content-to-react": "^3.0.0",
     "@types/react-dom": "18.0.8",
     "axios": "^1.5.1",
     "graphql": "^16.6.0",

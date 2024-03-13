@@ -1,15 +1,16 @@
+import LayoutContent from '../../components/Layout/LayoutContent'
 import Base from '../Base'
 import * as S from './styles'
-
-// import dynamic from 'next/dynamic'
-// Insert dynamic
-// https://nextjs.org/docs/advanced-features/preview-mode
-// Insert a preview mode
-
-export default function ArticleTemplate({ seo, header, footer }) {
+export default function PostTemplate({ post }) {
+  console.log(post)
   return (
-    <Base seo={seo} header={header} footer={footer}>
-      <S.Wrapper>Postagem</S.Wrapper>
+    <Base>
+      <S.Banner back={post?.mainImage?.asset?.url} shadow={true}>
+        <S.ContentBanner>
+          <h1>{post?.title}</h1>
+        </S.ContentBanner>
+      </S.Banner>
+      <LayoutContent data={post?.bodyRaw} />
     </Base>
   )
 }

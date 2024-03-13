@@ -6,7 +6,6 @@ import { size } from '../../../styles/utils/devices'
 import * as S from './styles'
 
 export default function LayoutBanner({ background, data, direction }) {
-  console.log('data', data?.slug?.current)
   const slideTitle = data?.slug?.current?.replace('-', '_')
   const { width } = useWindowSize()
   return (

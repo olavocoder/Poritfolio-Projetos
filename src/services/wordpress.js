@@ -1,6 +1,7 @@
 import { wordpressApi } from './api'
 import { BlogApi } from './graphql/Blog'
 import { HomeApi } from './graphql/Home'
+import { PostApi } from './graphql/Post'
 import { ProjetosApi } from './graphql/Projetos'
 import { SobreApi } from './graphql/Sobre'
 import { tecnologiasApi } from './graphql/Tecnologias'
@@ -12,6 +13,19 @@ export async function getHome() {
     })
 
     return response.data.allPaginas[0]
+  } catch (error) {
+    console.error(error)
+    return []
+  }
+}
+
+export async function getPost(slug) {
+  try {
+    const response = await wordpressApi.query({
+      query: PostApi(slug)
+    })
+
+    return response.data.allPost[0]
   } catch (error) {
     console.error(error)
     return []
