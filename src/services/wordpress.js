@@ -1,5 +1,6 @@
 import { wordpressApi } from './api'
 import { BlogApi } from './graphql/Blog'
+import { GeralApi } from './graphql/Geral'
 import { HomeApi } from './graphql/Home'
 import { PostApi } from './graphql/Post'
 import { ProjetosApi } from './graphql/Projetos'
@@ -26,6 +27,19 @@ export async function getPost(slug) {
     })
 
     return response.data.allPost[0]
+  } catch (error) {
+    console.error(error)
+    return []
+  }
+}
+
+export async function getGeral(slug) {
+  try {
+    const response = await wordpressApi.query({
+      query: GeralApi(slug)
+    })
+
+    return response.data.allGeral[0]
   } catch (error) {
     console.error(error)
     return []

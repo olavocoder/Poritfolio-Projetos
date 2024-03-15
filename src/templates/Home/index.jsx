@@ -45,6 +45,7 @@ export default function HomeTemplate({
 
   return (
     <Base
+      data={projetos}
       slideClass={[...titleSlides, ...titleSlidesImgs, ...titleSlidesSkills]}
     >
       <S.Modal>

@@ -41,3 +41,15 @@ export const ContentBanner = styled(Container)`
     width: fit-content;
   }
 `
+
+export const ContainerWrapper = styled(Container)`
+  .youtube-wrapper {
+    margin: 30px auto;
+    width: fit-content;
+  }
+  iframe {
+    width: 800px;
+    height: 400px;
+    margin: auto;
+  }
+`
