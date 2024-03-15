@@ -1,14 +1,23 @@
 import React from 'react'
 
-import { Container } from '../Container'
+import Image from 'next/image'
+
 import * as S from './styles'
 
-const Header = () => (
-  <S.Wrapper>
-    <Container>
-      <h1>Header</h1>
-    </Container>
-  </S.Wrapper>
-)
+const Header = ({ data }) => {
+  return (
+    <S.Wrapper>
+      <S.ContainerHeader>
+        <Image src={data?.logo?.asset?.url} width={50} height={50} />
+        <S.MenuList>
+          {data?.Menu &&
+            data?.Menu?.map((itemMenu, indexMenu) => (
+              <ul key={indexMenu}>{itemMenu?.title}</ul>
+            ))}
+        </S.MenuList>
+      </S.ContainerHeader>
+    </S.Wrapper>
+  )
+}
 
 export default Header

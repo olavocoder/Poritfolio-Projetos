@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react'
 
 import { NextSeo } from 'next-seo'
 
-import Tiny from '../../components/Slider/Tiny'
+import Header from '../../components/Header'
+import Tiny from '../../components/SliderConfig/Tiny'
 import { UseSeoTreated } from '../../hooks/useSeoTreated'
 import * as S from './styles'
 
-const Base = ({ children, seo, slideClass }) => {
+const Base = ({ children, seo, slideClass, header = null, data }) => {
   const [seoTreated, setSeoTreated] = useState([])
 
   useEffect(() => {
@@ -16,6 +17,7 @@ const Base = ({ children, seo, slideClass }) => {
 
   return (
     <S.Wrapper>
+      {header && <Header data={header} />}
       {seoTreated && (
         <NextSeo
           title={process.env.NEXT_PUBLIC_DEFAULT_TITLE}
@@ -40,7 +42,7 @@ const Base = ({ children, seo, slideClass }) => {
       )}
 
       {children}
-      {slideClass && (
+      {data && (
         <>
           <Tiny listClass={slideClass} />
         </>

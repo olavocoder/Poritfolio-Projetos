@@ -14,7 +14,6 @@ export default function AboutTemplate({
   blog
 }) {
   const projetosPorTecnologia = []
-  console.log('blog', blog)
   const titleSlides = tecnologias?.map((item) => {
     const slideReplace = item?.slug?.current?.replace('-', '_')
     return `slide${slideReplace}`
@@ -30,7 +29,6 @@ export default function AboutTemplate({
     return `slideSkills${slideReplace}`
   })
 
-  console.log('projetos', projetos)
   // Itera sobre cada tecnologia
   tecnologias.forEach((tecnologia) => {
     tecnologia = tecnologia?.title

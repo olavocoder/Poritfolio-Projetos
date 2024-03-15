@@ -16,7 +16,6 @@ export const ProjetosApi = gql`
         }
       }
       skills {
-        altText
         icons {
           asset {
             url

@@ -1,70 +1,55 @@
-import { Container } from 'components/Container'
-import styled, { css } from 'styled-components'
-import { devices } from 'styles/utils/devices'
+import styled from 'styled-components'
 
-export const Wrapper = styled.div`
-  padding-top: 0;
+import { Container } from '../../components/Container'
+import { devices } from '../../styles/utils/devices'
+export const Wrapper = styled.div``
 
-  @media ${devices.tablet} {
-    padding-top: 30px;
-  }
-
+export const Banner = styled.div`
+  ${({ back }) =>
+    `background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${back}');`}
+  height: 50vh;
+  background-attachment: fixed;
+  background-size: cover;
   @media ${devices.tabletL} {
-    padding-top: 60px;
+    background-position-y: -204px;
   }
 `
-
-export const ContentWrapper = styled(Container)`
-  position: relative;
-`
-
-export const PostContainer = styled.div`
-  width: 100%;
-  @media ${devices.tablet} {
-    padding: 0 30px;
-  }
-
-  @media ${devices.tabletL} {
-    padding: 0 30px 0 100px;
-  }
-`
-
-export const Content = styled.div`
-  ${({ theme }) => css`
-    &.sticked {
-      margin-bottom: 16px;
-
-      @media ${devices.tablet} {
-        margin-bottom: 40px;
-        padding: 0;
-        position: sticky;
-        align-self: flex-start;
-        top: ${`calc(${theme.sizes.header} + 20px)`};
-
-        &.scroled {
-          top: 20px;
-        }
-      }
-
-      @media ${devices.tabletL} {
-        top: ${`calc(${theme.sizes.headerD} + ${theme.sizes.topHeader} + 20px)`};
-
-        &.scroled {
-          top: 20px;
-        }
-      }
-    }
-  `}
-`
-
-export const RelatedWrapper = styled(Container)`
+export const ContentBanner = styled(Container)`
+  height: 50vh;
+  color: white;
   display: flex;
-  align-items: center;
-  overflow: hidden;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  p,
+  h1 {
+    margin-bottom: 47px;
+  }
+  h1 {
+    font-size: 42px;
+    line-height: 59px;
+    font-weight: 400;
+  }
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+  }
 
-  @media ${devices.maxtabletL} {
-    ${PostContainer} {
-      padding: 0;
-    }
+  @media ${devices.tabletL} {
+    width: fit-content;
+  }
+`
+
+export const ContainerWrapper = styled(Container)`
+  .youtube-wrapper {
+    margin: 30px auto;
+    width: fit-content;
+  }
+  iframe {
+    width: 800px;
+    height: 400px;
+    margin: auto;
   }
 `
