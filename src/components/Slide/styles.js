@@ -15,7 +15,7 @@ export const LayoutWrapper = styled.div`
   ${({ back }) => `background-color: ${back};`}
   ${({ back }) => `color: ${back == 'white' ? '#0e0e0e' : 'white'};`}
   @media ${devices.tabletL} {
-    height: 100vh;
+    height: 50vh;
     padding: 0;
   }
 `

@@ -50,6 +50,12 @@ export const ContainerWrapper = styled(Container)`
   iframe {
     width: 800px;
     height: 400px;
-    margin: auto;
+  }
+`
+export const ContentArea = styled.main`
+  display: flex;
+  justify-content: space-between;
+  .content {
+    width: 800px;
   }
 `

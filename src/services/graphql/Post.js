@@ -6,6 +6,12 @@ export const PostApi = (slug) => gql`
       title
       bodyRaw
       youTube
+      categories{
+        title
+        slug{
+          current
+        }
+      }
       mainImage{
         asset{
           url
@@ -14,6 +20,16 @@ export const PostApi = (slug) => gql`
       slug{
         current
       }
+      sidebarCards{
+      title
+      description
+      button
+      imageCard{
+        asset{
+          url
+        }
+      }
+    }
       postsRelateds{
       title
       description

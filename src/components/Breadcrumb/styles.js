@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
-import { Container } from '../Container'
-export const Wrapper = styled(Container)`
+export const Wrapper = styled.div`
   margin-top: 30px;
   display: flex;
   span {

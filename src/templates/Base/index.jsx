@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 import { NextSeo } from 'next-seo'
 
+import Footer from '../../components/Footer'
 import Header from '../../components/Header'
 import Tiny from '../../components/SliderConfig/Tiny'
 import { UseSeoTreated } from '../../hooks/useSeoTreated'
@@ -47,6 +48,7 @@ const Base = ({ children, seo, slideClass, header = null, data }) => {
           <Tiny listClass={slideClass} />
         </>
       )}
+      {header && <Footer footer={header} />}
     </S.Wrapper>
   )
 }
