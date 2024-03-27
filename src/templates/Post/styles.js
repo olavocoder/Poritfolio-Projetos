@@ -16,7 +16,6 @@ export const Banner = styled.div`
 `
 export const ContentBanner = styled(Container)`
   height: 50vh;
-  color: white;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -43,13 +42,8 @@ export const ContentBanner = styled(Container)`
 `
 
 export const ContainerWrapper = styled(Container)`
-  .youtube-wrapper {
-    margin: 30px auto;
-    width: fit-content;
-  }
-  iframe {
-    width: 800px;
-    height: 400px;
+  h2 {
+    margin: 50px 0 15px;
   }
 `
 export const ContentArea = styled.main`

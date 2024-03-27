@@ -52,7 +52,7 @@ export const LayoutBanner = styled(Container)`
   .layout-img {
     img {
       object-fit: cover;
-      border-radius: 30px;
+      border-radius: 10px;
       transition: all 0.3s;
     }
   }
@@ -118,11 +118,6 @@ export const SlideTextWrapper = styled.div`
       transform: rotate(180deg);
     }
   }
-
-  @media ${devices.tabletL} {
-    margin: 40px 0 0;
-    margin-top: 150px;
-  }
 `
 
 export const SkillsWrapper = styled.div`
@@ -157,7 +152,7 @@ export const SlideImg = styled.div`
   display: inline-block;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 30px;
+  border-radius: 10px;
   transition: all 0.3s;
   background-color: rgba(14, 14, 14, 0.69);
   box-shadow: inset -1px 0px 30px 7px rgb(15 15 15 / 82%);

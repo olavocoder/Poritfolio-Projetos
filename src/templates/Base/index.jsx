@@ -19,6 +19,8 @@ const Base = ({ children, seo, slideClass, header = null, data }) => {
   return (
     <S.Wrapper>
       {header && <Header data={header} />}
+      <div className="header-space"></div>
+
       {seoTreated && (
         <NextSeo
           title={process.env.NEXT_PUBLIC_DEFAULT_TITLE}

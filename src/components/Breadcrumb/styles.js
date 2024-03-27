@@ -1,8 +1,15 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  margin-top: 30px;
+  margin: 30px 0;
   display: flex;
+  a {
+    color: #000;
+    text-decoration: none;
+    &:first-child {
+      font-weight: 700;
+    }
+  }
   span {
     margin: 0 10px;
   }
