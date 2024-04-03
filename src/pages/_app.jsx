@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import '../styles/global.css'
 import { DefaultSeo } from 'next-seo'
 import Head from 'next/head'
 import { ThemeProvider } from 'styled-components'

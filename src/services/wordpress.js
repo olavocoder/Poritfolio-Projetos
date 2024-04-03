@@ -1,4 +1,4 @@
-import { wordpressApi } from './api'
+import { clientSanity, wordpressApi } from './api'
 import { BlogApi } from './graphql/Blog'
 import { GeralApi } from './graphql/Geral'
 import { HomeApi } from './graphql/Home'
@@ -20,13 +20,13 @@ export async function getHome() {
   }
 }
 
-export async function getPost(slug) {
+export async function getPost(slug = null, sort = 'ASC') {
   try {
     const response = await wordpressApi.query({
-      query: PostApi(slug)
+      query: PostApi(slug, sort)
     })
 
-    return response.data.allPost[0]
+    return slug ? response.data.allPost[0] : response.data.allPost
   } catch (error) {
     console.error(error)
     return []
@@ -95,5 +95,21 @@ export async function getTecnologias() {
   } catch (error) {
     console.error(error)
     return []
+  }
+}
+
+//codigo para o envio de numero de visualizações da pagina de post
+export async function SendViewsPost(post) {
+  try {
+    const newViewSchema = {
+      views: 1
+    }
+    const response = await clientSanity
+      .patch(post['_id'])
+      .inc(newViewSchema)
+      .commit('', { dryRun: false })
+    return response
+  } catch (err) {
+    console.log(err, 'não conseguiu receber a requisicao')
   }
 }

@@ -1,43 +1,51 @@
 import { gql } from '@apollo/client'
+function AddSlug(slug) {
+  return slug ? `(where:{slug:{current:{eq: "${slug}"}}})` : ''
+}
 
-export const PostApi = (slug) => gql`
+function AddSort(sort) {
+  return sort ? `(sort:[{views: "${sort}"}])` : ''
+}
+export const PostApi = (slug, sort) => gql`
   query Post {
-    allPost(where:{slug:{current:{eq: "${slug}"}}}){
+    allPost${AddSlug(slug)}{
+      _id
+      views
       title
       bodyRaw
       youTube
-      categories{
+      categories {
         title
-        slug{
+        slug {
           current
         }
       }
-      mainImage{
-        asset{
+      mainImage {
+        asset {
           url
         }
       }
-      slug{
+      slug {
         current
       }
-      sidebarCards{
-      title
-      description
-      button
-      imageCard{
-        asset{
-          url
+      sidebarCards {
+        title
+        description
+        button
+        imageCard {
+          asset {
+            url
+          }
         }
       }
-    }
-      postsRelateds{
-      title
-      description
-      slug{
-        current
-      }
-        mainImage{
-          asset{
+      postsRelateds {
+        title
+        description
+        slug {
+          current
+        }
+        mainImage {
+          asset {
             url
           }
         }

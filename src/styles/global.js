@@ -3,6 +3,9 @@ import { createGlobalStyle, css } from 'styled-components'
 import { devices } from './utils/devices'
 
 const GlobalStyles = createGlobalStyle`
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
   ${({ theme }) => css`
     * {
       margin: 0;

@@ -6,7 +6,6 @@ import Button from '../Button'
 import * as S from './styles'
 
 const Sidebar = ({ data }) => {
-  console.log('sidebar', data)
   return (
     <S.Wrapper>
       <h4 className="h4">Categorias</h4>

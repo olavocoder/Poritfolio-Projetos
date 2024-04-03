@@ -22,7 +22,11 @@ export default function PostTemplate({ post, header }) {
             <LayoutContent data={post?.bodyRaw} />
             <h2>Posts Relacionados</h2>
             {post?.postsRelateds && (
-              <Slide dataSlide={post?.postsRelateds} className="postSlide" />
+              <Slide
+                dataSlide={post?.postsRelateds}
+                className="postSlide"
+                type={'card'}
+              />
             )}
           </div>
           <Sidebar data={post} />

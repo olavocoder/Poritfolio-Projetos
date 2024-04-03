@@ -1,22 +1,12 @@
-import {
-  getHome,
-  getSobre,
-  getProjetos,
-  getTecnologias,
-  getBlogPage
-} from '../../services/wordpress'
-import AboutTemplate from '../../templates/About'
-
-export default function Projetos(data) {
-  return <AboutTemplate {...data} />
+import { getGeral, getPost } from '../../services/wordpress'
+import BlogHomeTemplate from '../../templates/BlogHome'
+export default function BlogHome(data) {
+  return <BlogHomeTemplate {...data} />
 }
 
 export async function getStaticProps() {
-  const home = await getHome()
-  const sobre = await getSobre()
-  const projetos = await getProjetos()
-  const tecnologias = await getTecnologias()
-  const blog = await getBlogPage()
+  const header = await getGeral('Blog')
+  const post = await getPost()
 
   // const data = categories
 
@@ -36,12 +26,9 @@ export async function getStaticProps() {
   return {
     revalidate: 60,
     props: {
+      header,
       seo,
-      home,
-      sobre,
-      projetos,
-      tecnologias,
-      blog
+      post
     }
   }
 }

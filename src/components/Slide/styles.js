@@ -97,8 +97,7 @@ export const SlideTextWrapper = styled.div`
 
   .slideWrapper {
     width: 300px;
-    position: relative;
-    display: flex;
+    height: 50vh;
   }
   .slide-cardWrapper {
     display: flex;
