@@ -56,6 +56,7 @@ export default function Slide({ dataSlide, className, type }) {
 }
 
 function LayoutWrapperSlide({ type, content, className }) {
+  console.log('conteudo do slide', content)
   switch (type) {
     case 'banner':
       return (
@@ -63,11 +64,13 @@ function LayoutWrapperSlide({ type, content, className }) {
           {content?.map((contentItem, contentIndex) => (
             <div
               className="slideItem"
-              style={{ color: '#000' }}
+              style={{
+                height: 'inherit',
+                color: '#000',
+                backgroundImage: `url(${contentItem?.mainImage?.asset?.url})`
+              }}
               key={contentIndex}
-            >
-              banner de posts mais importantes
-            </div>
+            />
           ))}
         </div>
       )

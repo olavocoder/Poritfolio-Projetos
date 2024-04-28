@@ -10,16 +10,18 @@ import * as S from './styles'
 
 const Base = ({ children, seo, slideClass, header = null, data }) => {
   const [seoTreated, setSeoTreated] = useState([])
+  const [isHome, setIsHome] = useState(false)
 
   useEffect(() => {
     const tempSeo = UseSeoTreated({ seo })
     setSeoTreated(tempSeo)
+    if (window.location.pathname == '/') setIsHome(true)
   }, [seo])
 
   return (
     <S.Wrapper>
       {header && <Header data={header} />}
-      <div className="header-space"></div>
+      {!isHome && <div className="header-space"></div>}
 
       {seoTreated && (
         <NextSeo

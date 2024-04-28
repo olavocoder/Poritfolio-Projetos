@@ -123,7 +123,7 @@ export const SkillsWrapper = styled.div`
   margin: 30px 0;
   width: 100%;
   img {
-    padding-right: 10px;
+    padding-right: 30px;
     padding-top: 7px;
     object-fit: contain;
     transition: all 0.3s;
@@ -134,7 +134,8 @@ export const SkillsWrapper = styled.div`
   .tns-outer {
     width: auto;
   }
-  @media ${devices.tabletL} {
+
+  .layout-skillsItem {
     margin: 30px 0 0;
     display: flex;
     justify-content: center;

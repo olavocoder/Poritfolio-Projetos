@@ -6,7 +6,8 @@ export default function BlogHome(data) {
 
 export async function getStaticProps() {
   const header = await getGeral('Blog')
-  const post = await getPost()
+  // filters attributes views and _updateAt
+  const post = await getPost(null, `[{ _updatedAt: ASC }, { views: ASC }]`)
 
   // const data = categories
 

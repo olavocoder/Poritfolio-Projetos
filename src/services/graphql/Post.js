@@ -1,19 +1,29 @@
 import { gql } from '@apollo/client'
-function AddSlug(slug) {
-  return slug ? `(where:{slug:{current:{eq: "${slug}"}}})` : ''
+
+// Algoritmo de querys para graphQL
+function AddQuerys(slug = null, filter = null) {
+  console.log('slug do site', slug)
+  const sortQuery = `sort:${filter}`
+  const whereQuery = `where:{slug:{current:{eq: "${slug}"}}}`
+  if (!slug && !filter) return ''
+  if (slug && filter) return `(${sortQuery}, ${whereQuery})`
+  if (filter && !slug) return `(${sortQuery})`
+  if (slug && !filter) return `(${whereQuery})`
 }
 
-function AddSort(sort) {
-  return sort ? `(sort:[{views: "${sort}"}])` : ''
-}
-export const PostApi = (slug, sort) => gql`
+export const PostApi = ({ slug, filter }) => gql`
   query Post {
-    allPost${AddSlug(slug)}{
+    allPost${AddQuerys(slug, filter)}{
       _id
       views
       title
       bodyRaw
       youTube
+      mainImage{
+        asset{
+          url
+        }
+      }
       categories {
         title
         slug {

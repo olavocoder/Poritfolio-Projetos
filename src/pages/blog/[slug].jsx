@@ -15,12 +15,12 @@ export async function getStaticProps({ params }) {
   const header = await getGeral('Blog')
 
   //retorna informações de posts do blog
-  const post = await getPost(params.slug)
+  let post = await getPost(params.slug, null)
   // Envia numero de views da pagina
-
-  const responseSend = await SendViewsPost(post)
+  post = post[0]
+  const responseSend = await SendViewsPost(post[0])
   console.log('response', responseSend)
-  console.log('post', post['_id'])
+
   const seo = {
     title: 'Home',
     description: 'Página inicial',

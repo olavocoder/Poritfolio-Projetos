@@ -74,15 +74,17 @@ export default function LayoutSlide({ color, data, direction, dataSlide }) {
               <div className={`slideSkills${slideTitle}`}>
                 {dataSlide?.map((projeto, i) => (
                   <div key={i} className="layout-skills">
-                    {projeto?.skills?.map((item, index) => (
-                      <Image
-                        key={index}
-                        src={item.icons?.asset?.url}
-                        alt={item?.altText}
-                        width={100}
-                        height={42}
-                      />
-                    ))}
+                    <div className="layout-skillsItem">
+                      {projeto?.skills?.map((item, index) => (
+                        <Image
+                          key={index}
+                          src={item.icons?.asset?.url}
+                          alt={item?.altText}
+                          width={70}
+                          height={32}
+                        />
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>

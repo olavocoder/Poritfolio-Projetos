@@ -20,13 +20,13 @@ export async function getHome() {
   }
 }
 
-export async function getPost(slug = null, sort = 'ASC') {
+export async function getPost(slug = null, filter = null) {
   try {
     const response = await wordpressApi.query({
-      query: PostApi(slug, sort)
+      query: PostApi({ slug: slug, filter: filter })
     })
-
-    return slug ? response.data.allPost[0] : response.data.allPost
+    console.log(response.errors)
+    return response.data.allPost
   } catch (error) {
     console.error(error)
     return []

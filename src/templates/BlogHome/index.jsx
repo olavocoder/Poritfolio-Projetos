@@ -4,6 +4,7 @@ import Slide from '../../components/Slide'
 import Base from '../Base'
 import * as S from './styles'
 export default function BlogHomeTemplate({ header, post }) {
+  console.log('post', post)
   return (
     <Base data={post} header={header} slideClass={['heroSlide']}>
       <S.Wrapper>
