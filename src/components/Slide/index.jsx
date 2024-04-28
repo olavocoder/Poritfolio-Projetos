@@ -4,7 +4,7 @@ import { size } from '../../styles/utils/devices'
 import Card from '../Card'
 import * as S from './styles'
 
-export default function Slide({ dataSlide, className }) {
+export default function Slide({ dataSlide, className, type }) {
   const { width } = useWindowSize()
 
   // Cria um array bi-dimensional separando os cards para cada wrapper do slide
@@ -29,21 +29,20 @@ export default function Slide({ dataSlide, className }) {
               color={'#000'}
             />
           </div>
-          <div className={`slideWrapper ${className} layout-slideText`}>
-            {contentDesk?.map((contentItem, contentIndex) => (
-              <div
-                className="slideItem"
-                style={{ color: '#000' }}
-                key={contentIndex}
-              >
-                <div className="slide-cardWrapper">
-                  {contentItem?.map((item, index) => (
-                    <Card data={item} key={index} />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
+          {dataSlide && type == 'card' && (
+            <LayoutWrapperSlide
+              type={'card'}
+              content={contentDesk}
+              className={className}
+            />
+          )}
+          {dataSlide && type == 'banner' && (
+            <LayoutWrapperSlide
+              type={'banner'}
+              content={dataSlide}
+              className={className}
+            />
+          )}
           <div className={`${className}_right slideArrow`}>
             <ArrowIconDark
               width={width < size.laptopM ? 35 : 55}
@@ -54,4 +53,47 @@ export default function Slide({ dataSlide, className }) {
       )}
     </S.LayoutWrapper>
   )
+}
+
+function LayoutWrapperSlide({ type, content, className }) {
+  console.log('conteudo do slide', content)
+  switch (type) {
+    case 'banner':
+      return (
+        <div className={`slideWrapper ${className} layout-slideText`}>
+          {content?.map((contentItem, contentIndex) => (
+            <div
+              className="slideItem"
+              style={{
+                height: 'inherit',
+                color: '#000',
+                backgroundImage: `url(${contentItem?.mainImage?.asset?.url})`
+              }}
+              key={contentIndex}
+            />
+          ))}
+        </div>
+      )
+
+    case 'card':
+      return (
+        <div className={`slideWrapper ${className} layout-slideText`}>
+          {content?.map((contentItem, contentIndex) => (
+            <div
+              className="slideItem"
+              style={{ color: '#000' }}
+              key={contentIndex}
+            >
+              <div className="slide-cardWrapper">
+                {contentItem?.map((item, index) => (
+                  <Card data={item} key={index} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )
+    default:
+      return <>nao atendeu nenhum dos requisitos</>
+  }
 }

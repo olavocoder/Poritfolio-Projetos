@@ -1,9 +1,15 @@
 import styled from 'styled-components'
 
-import { Container } from '../Container'
-export const Wrapper = styled(Container)`
-  margin-top: 30px;
+export const Wrapper = styled.div`
+  margin: 30px 0;
   display: flex;
+  a {
+    color: #000;
+    text-decoration: none;
+    &:first-child {
+      font-weight: 700;
+    }
+  }
   span {
     margin: 0 10px;
   }

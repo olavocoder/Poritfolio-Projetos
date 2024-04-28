@@ -15,7 +15,7 @@ export const LayoutWrapper = styled.div`
   ${({ back }) => `background-color: ${back};`}
   ${({ back }) => `color: ${back == 'white' ? '#0e0e0e' : 'white'};`}
   @media ${devices.tabletL} {
-    height: 100vh;
+    height: 50vh;
     padding: 0;
   }
 `
@@ -52,7 +52,7 @@ export const LayoutBanner = styled(Container)`
   .layout-img {
     img {
       object-fit: cover;
-      border-radius: 30px;
+      border-radius: 10px;
       transition: all 0.3s;
     }
   }
@@ -97,8 +97,7 @@ export const SlideTextWrapper = styled.div`
 
   .slideWrapper {
     width: 300px;
-    position: relative;
-    display: flex;
+    height: 50vh;
   }
   .slide-cardWrapper {
     display: flex;
@@ -117,11 +116,6 @@ export const SlideTextWrapper = styled.div`
     &:first-child {
       transform: rotate(180deg);
     }
-  }
-
-  @media ${devices.tabletL} {
-    margin: 40px 0 0;
-    margin-top: 150px;
   }
 `
 
@@ -157,7 +151,7 @@ export const SlideImg = styled.div`
   display: inline-block;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 30px;
+  border-radius: 10px;
   transition: all 0.3s;
   background-color: rgba(14, 14, 14, 0.69);
   box-shadow: inset -1px 0px 30px 7px rgb(15 15 15 / 82%);
