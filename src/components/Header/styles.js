@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { devices } from '../../styles/utils/devices'
 import { Container } from '../Container'
@@ -14,10 +14,8 @@ export const Wrapper = styled.header`
   img {
     object-fit: contain;
   }
-  ${({ theme }) => css`
-    position fixed;
-    width: 100%;
-  `}
+  position: fixed;
+  width: 100%;
 `
 export const ContainerHeader = styled(Container)`
   .menu-area {

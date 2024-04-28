@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import { Container } from '../../Container'
-
 export const LayoutWrapper = styled.main`
   margin-top: 40px;
   p {
