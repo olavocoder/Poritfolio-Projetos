@@ -15,6 +15,7 @@ export const PostApi = ({ slug, filter }) => gql`
   query Post {
     allPost${AddQuerys(slug, filter)}{
       _id
+      _type
       views
       title
       bodyRaw

@@ -11,7 +11,7 @@ const Footer = ({ footer }) => (
       <footer>
         <S.SocialLogoArea>
           <Image src={footer?.logoFooter?.asset?.url} width={150} height={50} />
-          <div>
+          <div className="flex">
             {footer?.SocialFooter?.map((item, index) => (
               <a href={item?.url} key={index} className="social_icons">
                 <Image src={item?.icon?.asset?.url} width={30} height={30} />
