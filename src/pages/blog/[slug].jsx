@@ -1,8 +1,21 @@
-import { getPost, SendViewsPost } from '../../services/wordpress'
-import { getGeral } from '../../services/wordpress'
+import {
+  getPost,
+  SendViewsPost,
+  getCategories,
+  getGeral
+} from '../../services/wordpress'
+import CategoryTemplate from '../../templates/Category'
 import PostTemplate from '../../templates/Post'
 
 export default function Projetos(data) {
+  if (data.post) {
+    if (data.post['_type'] == 'category') {
+      return <CategoryTemplate {...data} />
+    } else {
+      return <PostTemplate {...data} />
+    }
+  }
+
   return <PostTemplate {...data} />
 }
 
@@ -16,9 +29,11 @@ export async function getStaticProps({ params }) {
 
   //retorna informações de posts do blog
   let post = await getPost(params.slug, null)
+  let categories = await getCategories(params.slug, null)
+  post = post[0] ? post : categories
   // Envia numero de views da pagina
   post = post[0]
-  const responseSend = await SendViewsPost(post[0])
+  const responseSend = post ? await SendViewsPost(post) : null
   console.log('response', responseSend)
 
   const seo = {

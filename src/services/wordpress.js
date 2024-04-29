@@ -1,5 +1,6 @@
 import { clientSanity, wordpressApi } from './api'
 import { BlogApi } from './graphql/Blog'
+import { CategoryApi } from './graphql/category'
 import { GeralApi } from './graphql/Geral'
 import { HomeApi } from './graphql/Home'
 import { PostApi } from './graphql/Post'
@@ -7,6 +8,7 @@ import { ProjetosApi } from './graphql/Projetos'
 import { SobreApi } from './graphql/Sobre'
 import { tecnologiasApi } from './graphql/Tecnologias'
 
+// Faz requisição para os dados principais da home
 export async function getHome() {
   try {
     const response = await wordpressApi.query({
@@ -20,6 +22,7 @@ export async function getHome() {
   }
 }
 
+// Faz requisicao dos dados principais dos posts
 export async function getPost(slug = null, filter = null) {
   try {
     const response = await wordpressApi.query({
@@ -33,6 +36,21 @@ export async function getPost(slug = null, filter = null) {
   }
 }
 
+// Faz requisição dos dados principais de categorias
+export async function getCategories(slug = null, filter = null) {
+  try {
+    const response = await wordpressApi.query({
+      query: CategoryApi({ slug: slug, filter: filter })
+    })
+    console.log(response.errors)
+    return response.data.allCategory
+  } catch (error) {
+    console.error(error)
+    return []
+  }
+}
+
+// Faz requisições dos dados gerais (Header, footer, SEO, etc...)
 export async function getGeral(slug) {
   try {
     const response = await wordpressApi.query({
@@ -46,6 +64,7 @@ export async function getGeral(slug) {
   }
 }
 
+// Faz requisicao nos dados da Home do blog
 export async function getBlogPage() {
   try {
     const response = await wordpressApi.query({
@@ -59,6 +78,7 @@ export async function getBlogPage() {
   }
 }
 
+// Faz requisição dos dados da pagina sobre
 export async function getSobre() {
   try {
     const response = await wordpressApi.query({
@@ -72,6 +92,7 @@ export async function getSobre() {
   }
 }
 
+// Faz requisições dos dados dos projetos feitos
 export async function getProjetos() {
   try {
     const response = await wordpressApi.query({
@@ -85,6 +106,7 @@ export async function getProjetos() {
   }
 }
 
+// Faz requisições dos dados de tecnologia
 export async function getTecnologias() {
   try {
     const response = await wordpressApi.query({
