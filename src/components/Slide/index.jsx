@@ -56,7 +56,6 @@ export default function Slide({ dataSlide, className, type }) {
 }
 
 function LayoutWrapperSlide({ type, content, className }) {
-  console.log('conteudo do slide', content)
   switch (type) {
     case 'banner':
       return (

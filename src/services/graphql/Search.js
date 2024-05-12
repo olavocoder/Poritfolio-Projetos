@@ -1,18 +1,8 @@
 import { gql } from '@apollo/client'
 
-// Algoritmo de querys para graphQL
-function AddQuerys(slug = null, filter = null) {
-  const sortQuery = `sort:${filter}`
-  const whereQuery = `where:{slug:{current:{eq: "${slug}"}}}`
-  if (!slug && !filter) return ''
-  if (slug && filter) return `(${sortQuery}, ${whereQuery})`
-  if (filter && !slug) return `(${sortQuery})`
-  if (slug && !filter) return `(${whereQuery})`
-}
-
-export const PostApi = ({ slug, filter }) => gql`
+export const SearchApi = (title) => gql`
   query Post {
-    allPost${AddQuerys(slug, filter)}{
+    allPost(where: {title:{matches: "${title}"}}){
       _id
       _type
       views

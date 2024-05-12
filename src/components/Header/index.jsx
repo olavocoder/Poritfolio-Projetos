@@ -1,14 +1,24 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Image from 'next/image'
 
 import { SearchIcon } from '../../assets/icons'
 import Button from '../Button'
+import Search from '../Search'
 import * as S from './styles'
 
 const Header = ({ data }) => {
   const [active, setActive] = useState(false)
+  const [results, setResults] = useState(null)
+
+  useEffect(() => {
+    if (results) {
+      const resultsData = JSON.stringify(results)
+      window.localStorage.setItem('dataSearch', resultsData)
+      window.location.replace('/blog/search')
+    }
+  }, [results])
 
   return (
     <S.Wrapper>
@@ -23,16 +33,16 @@ const Header = ({ data }) => {
                 ))}
             </S.MenuList>
             <Button
-              onClick={() => (active ? setActive(false) : setActive(true))}
+              onClick={() => {
+                active ? setActive(false) : setActive(true)
+              }}
             >
               <SearchIcon />
             </Button>
           </div>
         </div>
         {active && (
-          <div className="search-area">
-            <input type="search" />
-          </div>
+          <Search className={'rounded-2xl mt-4 px-4'} setResults={setResults} />
         )}
       </S.ContainerHeader>
     </S.Wrapper>
