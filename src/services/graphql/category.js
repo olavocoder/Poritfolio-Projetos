@@ -2,7 +2,6 @@ import { gql } from '@apollo/client'
 
 // Algoritmo de querys para graphQL
 function AddQuerys(slug = null, filter = null) {
-  console.log('slug do site', slug)
   const sortQuery = `sort:${filter}`
   const whereQuery = `where:{slug:{current:{eq: "${slug}"}}}`
   if (!slug && !filter) return ''

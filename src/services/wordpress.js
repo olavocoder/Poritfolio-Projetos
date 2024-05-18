@@ -5,6 +5,7 @@ import { GeralApi } from './graphql/Geral'
 import { HomeApi } from './graphql/Home'
 import { PostApi } from './graphql/Post'
 import { ProjetosApi } from './graphql/Projetos'
+import { SearchApi } from './graphql/Search'
 import { SobreApi } from './graphql/Sobre'
 import { tecnologiasApi } from './graphql/Tecnologias'
 
@@ -29,6 +30,20 @@ export async function getPost(slug = null, filter = null) {
       query: PostApi({ slug: slug, filter: filter })
     })
     console.log(response.errors)
+    return response.data.allPost
+  } catch (error) {
+    console.error(error)
+    return []
+  }
+}
+
+// Faz requisicao dos posts por termo
+export async function getSearch(title = null) {
+  try {
+    const response = await wordpressApi.query({
+      query: SearchApi(title)
+    })
+    console.log('resposta requisicao', response)
     return response.data.allPost
   } catch (error) {
     console.error(error)
