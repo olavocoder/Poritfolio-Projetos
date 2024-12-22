@@ -24,12 +24,11 @@ export async function getHome() {
 }
 
 // Faz requisicao dos dados principais dos posts
-export async function getPost(slug = null, filter = null) {
+export async function getPost(slug = null, filter = null, cat = null, pag = 0) {
   try {
     const response = await wordpressApi.query({
-      query: PostApi({ slug: slug, filter: filter })
+      query: PostApi({ slug: slug, filter: filter, cat: cat, pag: pag })
     })
-    console.log(response.errors)
     return response.data.allPost
   } catch (error) {
     console.error(error)
@@ -43,7 +42,6 @@ export async function getSearch(title = null) {
     const response = await wordpressApi.query({
       query: SearchApi(title)
     })
-    console.log('resposta requisicao', response)
     return response.data.allPost
   } catch (error) {
     console.error(error)
@@ -57,7 +55,6 @@ export async function getCategories(slug = null, filter = null) {
     const response = await wordpressApi.query({
       query: CategoryApi({ slug: slug, filter: filter })
     })
-    console.log(response.errors)
     return response.data.allCategory
   } catch (error) {
     console.error(error)

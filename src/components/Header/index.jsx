@@ -25,22 +25,21 @@ const Header = ({ data }) => {
       <S.ContainerHeader>
         <div className="menu-area">
           <Image src={data?.logo?.asset?.url} width={150} height={50} />
-          <div className="menu-list">
-            <S.MenuList>
-              {data?.Menu &&
-                data?.Menu?.map((itemMenu, indexMenu) => (
-                  <ul key={indexMenu}>{itemMenu?.title}</ul>
-                ))}
-            </S.MenuList>
-            <Button
-              onClick={() => {
-                active ? setActive(false) : setActive(true)
-              }}
-            >
-              <SearchIcon />
-            </Button>
-          </div>
+          <S.MenuList>
+            {data?.Menu &&
+              data?.Menu?.map((itemMenu, indexMenu) => (
+                <ul key={indexMenu}>{itemMenu?.title}</ul>
+              ))}
+          </S.MenuList>
+          <Button
+            onClick={() => {
+              active ? setActive(false) : setActive(true)
+            }}
+          >
+            <SearchIcon />
+          </Button>
         </div>
+
         {active && (
           <Search className={'rounded-2xl mt-4 px-4'} setResults={setResults} />
         )}

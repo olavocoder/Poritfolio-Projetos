@@ -41,3 +41,6 @@ storybook-static
 # Lock files
 yarn.lock
 package-lock.json
+
+# back end
+Sanity-CMS
