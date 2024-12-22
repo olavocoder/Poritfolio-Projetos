@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang="pt-BR">
+      <Html lang="pt-BR" suppressHydrationWarning>
         <Head>
           <Analytics />
           <link rel="stylesheet" href="/tiny-slider.css" />

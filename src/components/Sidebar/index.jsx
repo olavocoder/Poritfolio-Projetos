@@ -1,9 +1,7 @@
 import React from 'react'
-
-import Image from 'next/image'
-
-import Button from '../Button'
+import { Button } from '../ui/button'
 import * as S from './styles'
+import { Card, Text, Image, Box, CardRoot, Heading } from '@chakra-ui/react'
 
 const Sidebar = ({ data }) => {
   return (
@@ -15,14 +13,20 @@ const Sidebar = ({ data }) => {
         ))}
       </div>
       <h4 className="h4">Veja Tambem</h4>
-      <div className="sidebar-cards">
+      <div>
         {data?.sidebarCards?.map((item, index) => (
-          <S.CardSidebar key={index}>
-            <Image src={item?.imageCard?.asset?.url} width={50} height={50} />
-            <h4>{item?.title}</h4>
-            <p>{item?.description}</p>
-            <Button href={item?.button}>Click Me</Button>
-          </S.CardSidebar>
+          <Card.Root mb={4}>
+            <Image src={item?.imageCard?.asset?.url} width={'1/1'} height={'150px'}/>
+            <Box px={4} py={2}>
+              <Card.Body>
+                <Heading as={'h4'}>{item?.title}</Heading>
+                <Text>{item?.description}</Text>
+              </Card.Body>
+              <Card.Footer>
+                <Button href={item?.button}>Click Me</Button>
+              </Card.Footer>
+            </Box>
+          </Card.Root>
         ))}
       </div>
     </S.Wrapper>

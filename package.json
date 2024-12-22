@@ -2,9 +2,6 @@
   "name": "boilerplate-blog",
   "version": "1.0.0",
   "private": true,
-  "engines": {
-    "node": "18"
-  },
   "scripts": {
     "analyze": "ANALYZE=true next build",
     "dev": "next dev",
@@ -22,18 +19,22 @@
   "dependencies": {
     "@apollo/client": "^3.7.1",
     "@builder.io/partytown": "^0.6.4",
+    "@chakra-ui/react": "^3.2.0",
+    "@emotion/react": "^11.13.5",
     "@loadable/component": "^5.15.2",
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/client": "^6.15.7",
+    "@swc/helpers": "^0.5.15",
     "@types/react-dom": "18.0.8",
     "axios": "^1.5.1",
     "dotenv": "^16.4.5",
     "graphql": "^16.6.0",
-    "next": "13.0.1",
+    "next": "^15.0.3",
     "next-compose-plugins": "^2.2.1",
     "next-fonts": "^1.5.1",
     "next-pwa": "^5.5.5",
     "next-seo": "^4.28.1",
+    "next-themes": "^0.4.3",
     "prop-types": "^15.8.1",
     "react": "18.2.0",
     "react-cookie-consent": "^7.6.0",

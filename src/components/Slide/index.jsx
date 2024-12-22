@@ -3,6 +3,7 @@ import { useWindowSize } from '../../hooks/useWindowSize'
 import { size } from '../../styles/utils/devices'
 import Card from '../Card'
 import * as S from './styles'
+import Image from 'next/image'
 
 export default function Slide({ dataSlide, className, type }) {
   const { width } = useWindowSize()
@@ -20,15 +21,9 @@ export default function Slide({ dataSlide, className, type }) {
   const contentDesk = ChangeNumbersCardsContent(dataSlide, 3)
 
   return (
-    <S.LayoutWrapper back={'#fff'}>
+    <S.LayoutWrapper>
       {contentDesk && (
         <S.SlideTextWrapper>
-          <div className={`${className}_left slideArrow`}>
-            <ArrowIconDark
-              width={width < size.laptopM ? 35 : 55}
-              color={'#000'}
-            />
-          </div>
           {dataSlide && type == 'card' && (
             <LayoutWrapperSlide
               type={'card'}
@@ -43,12 +38,6 @@ export default function Slide({ dataSlide, className, type }) {
               className={className}
             />
           )}
-          <div className={`${className}_right slideArrow`}>
-            <ArrowIconDark
-              width={width < size.laptopM ? 35 : 55}
-              color={'#000'}
-            />
-          </div>
         </S.SlideTextWrapper>
       )}
     </S.LayoutWrapper>
@@ -56,6 +45,7 @@ export default function Slide({ dataSlide, className, type }) {
 }
 
 function LayoutWrapperSlide({ type, content, className }) {
+  console.log('conteudo', content)
   switch (type) {
     case 'banner':
       return (
@@ -63,13 +53,22 @@ function LayoutWrapperSlide({ type, content, className }) {
           {content?.map((contentItem, contentIndex) => (
             <div
               className="slideItem"
-              style={{
-                height: 'inherit',
-                color: '#000',
-                backgroundImage: `url(${contentItem?.mainImage?.asset?.url})`
-              }}
               key={contentIndex}
-            />
+            >
+              <div className="slideItem-wrapper">
+                <Image
+                  src={contentItem?.mainImage?.asset?.url}
+                  width="500"
+                  height="400"
+                />
+                <div>
+                  <a href={`/${contentItem?.category?.slug?.current}`}>
+                    {contentItem?.category?.title}
+                  </a>
+                  <h2>{contentItem?.title}</h2>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       )

@@ -10,6 +10,7 @@ import GlobalStyles from '../styles/global'
 import theme from '../styles/theme'
 import { SetTheme } from '../styles/utils/colors'
 import GlobalFonts from '../styles/utils/fonts'
+import { Provider } from '../components/ui/provider'
 
 function App({ Component, pageProps }) {
   // Configurações de acessibilidade (fontes e cores)
@@ -38,24 +39,26 @@ function App({ Component, pageProps }) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Head>
-        <link rel="icon" href="/img/favicon.ico" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="canonical" href="https://poritfolio-projetos.vercel.app" />
-        <meta name="application-name" content="Blog" />
-        <meta name="description" content="Blog" />
-        <meta
-          name="google-site-verification"
-          content="noz88T41NvGV2_gkHk_9RgQKnNY6NWxL3cI3Irwv3bE"
-        />
-      </Head>
-      <GlobalFonts />
-      <Component {...pageProps} />
-      <SetTheme activeTheme={contrast} />
-      <GlobalStyles />
-      <DefaultSeo {...SEO} />
-    </ThemeProvider>
+    <Provider>
+      <ThemeProvider theme={theme}>
+        <Head>
+          <link rel="icon" href="/img/favicon.ico" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="canonical" href="https://poritfolio-projetos.vercel.app" />
+          <meta name="application-name" content="Blog" />
+          <meta name="description" content="Blog" />
+          <meta
+            name="google-site-verification"
+            content="noz88T41NvGV2_gkHk_9RgQKnNY6NWxL3cI3Irwv3bE"
+          />
+        </Head>
+        <GlobalFonts />
+        <Component {...pageProps} />
+        <SetTheme activeTheme={contrast} />
+        <GlobalStyles />
+        <DefaultSeo {...SEO} />
+      </ThemeProvider>
+    </Provider>
   )
 }
 

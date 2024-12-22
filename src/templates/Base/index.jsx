@@ -16,6 +16,7 @@ const Base = ({ children, seo, slideClass, header = null, data }) => {
     const tempSeo = UseSeoTreated({ seo })
     setSeoTreated(tempSeo)
     if (window.location.pathname == '/') setIsHome(true)
+    if (window.location.pathname == '/blog') setIsHome(true)
   }, [seo])
 
   return (

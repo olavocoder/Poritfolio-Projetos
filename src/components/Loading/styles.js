@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   position: relative;
 
   &:not(.no-padd) {
-    height: 210px;
+    height: 50vh;
     width: 100%;
   }
 `
@@ -20,9 +20,9 @@ export const Loading = styled.div`
       transform: translate(-50%, -50%);
       height: 70px;
       width: 70px;
-      border-top: 2px solid ${theme.colors.primary[70]};
-      border-right: 2px solid ${theme.colors.primary[70]};
-      border-bottom: 2px solid ${theme.colors.primary[70]};
+      border-top: 2px solid #fff;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
       border-left: 2px solid transparent;
       animation: loading 1s infinite linear;
       border-radius: 50%;

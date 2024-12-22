@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
     height: calc(100vw / 3);
   }
   .header-space {
-    padding-bottom: 130px;
+    padding-bottom: 80px;
   }
   h1 {
     font-size: 32px;

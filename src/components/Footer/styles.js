@@ -1,12 +1,16 @@
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.footer`
+  position: relative;
   color: #fff;
   padding: 30px 0;
   text-align: center;
   ${({ theme }) => css`
     background-color: ${theme.colors.black};
   `}
+  .footer-wrapper{
+    position: relative;
+  }
 `
 export const SocialLogoArea = styled.div`
   display: flex;
