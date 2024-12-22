@@ -42,7 +42,7 @@ export const Slider = React.forwardRef(function Slider(props, ref) {
       _3((mark) => {
         if (typeof mark === 'number') return { value: mark, label: undefined }
         return mark
-      }),
+      })
   ])
 
   const hasMarkLabel = !!_optionalChain([
@@ -50,17 +50,17 @@ export const Slider = React.forwardRef(function Slider(props, ref) {
     'optionalAccess',
     (_4) => _4.some,
     'call',
-    (_5) => _5((mark) => mark.label),
+    (_5) => _5((mark) => mark.label)
   ])
 
   return (
-    <ChakraSlider.Root ref={ref} thumbAlignment='center' {...rest}>
+    <ChakraSlider.Root ref={ref} thumbAlignment="center" {...rest}>
       {label && !showValue && (
-        <ChakraSlider.Label fontWeight='medium'>{label}</ChakraSlider.Label>
+        <ChakraSlider.Label fontWeight="medium">{label}</ChakraSlider.Label>
       )}
       {label && showValue && (
-        <HStack justify='space-between'>
-          <ChakraSlider.Label fontWeight='medium'>{label}</ChakraSlider.Label>
+        <HStack justify="space-between">
+          <ChakraSlider.Label fontWeight="medium">{label}</ChakraSlider.Label>
           <ChakraSlider.ValueText />
         </HStack>
       )}
@@ -78,7 +78,7 @@ export const Slider = React.forwardRef(function Slider(props, ref) {
               <ChakraSlider.Thumb key={index} index={index}>
                 <ChakraSlider.HiddenInput />
               </ChakraSlider.Thumb>
-            )),
+            ))
         ])}
       </ChakraSlider.Control>
       {_optionalChain([marks, 'optionalAccess', (_8) => _8.length]) && (

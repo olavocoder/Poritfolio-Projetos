@@ -2,7 +2,7 @@ import {
   AbsoluteCenter,
   Button as ChakraButton,
   Span,
-  Spinner,
+  Spinner
 } from '@chakra-ui/react'
 import * as React from 'react'
 
@@ -12,14 +12,14 @@ export const Button = React.forwardRef(function Button(props, ref) {
     <ChakraButton disabled={loading || disabled} ref={ref} {...rest}>
       {loading && !loadingText ? (
         <>
-          <AbsoluteCenter display='inline-flex'>
-            <Spinner size='inherit' color='inherit' />
+          <AbsoluteCenter display="inline-flex">
+            <Spinner size="inherit" color="inherit" />
           </AbsoluteCenter>
           <Span opacity={0}>{children}</Span>
         </>
       ) : loading && loadingText ? (
         <>
-          <Spinner size='inherit' color='inherit' />
+          <Spinner size="inherit" color="inherit" />
           {loadingText}
         </>
       ) : (

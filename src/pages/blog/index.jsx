@@ -1,6 +1,6 @@
-import { get } from 'http'
 import { getGeral, getPost, getCategories } from '../../services/wordpress'
 import BlogHomeTemplate from '../../templates/BlogHome'
+
 export default function BlogHome(data) {
   return <BlogHomeTemplate {...data} />
 }
@@ -10,7 +10,7 @@ export async function getStaticProps() {
   // filters attributes views and _updateAt
   const post = await getPost()
   const categories = await getCategories()
-  
+
   // const data = categories
 
   // go to notfound

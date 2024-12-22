@@ -8,7 +8,7 @@ export const Wrapper = styled.footer`
   ${({ theme }) => css`
     background-color: ${theme.colors.black};
   `}
-  .footer-wrapper{
+  .footer-wrapper {
     position: relative;
   }
 `

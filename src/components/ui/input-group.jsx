@@ -16,19 +16,19 @@ export const InputGroup = React.forwardRef(function InputGroup(props, ref) {
   return (
     <Group ref={ref} {...rest}>
       {startElement && (
-        <InputElement pointerEvents='none' {...startElementProps}>
+        <InputElement pointerEvents="none" {...startElementProps}>
           {startElement}
         </InputElement>
       )}
       {React.cloneElement(children, {
         ...(startElement && {
-          ps: `calc(var(--input-height) - ${startOffset})`,
+          ps: `calc(var(--input-height) - ${startOffset})`
         }),
         ...(endElement && { pe: `calc(var(--input-height) - ${endOffset})` }),
-        ...children.props,
+        ...children.props
       })}
       {endElement && (
-        <InputElement placement='end' {...endElementProps}>
+        <InputElement placement="end" {...endElementProps}>
           {endElement}
         </InputElement>
       )}

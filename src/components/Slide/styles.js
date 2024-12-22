@@ -14,8 +14,8 @@ export const LayoutWrapper = styled.div`
       display: none;
     }
   }
-  
-  .tns-controls{
+
+  .tns-controls {
     display: none;
   }
 
@@ -25,19 +25,19 @@ export const LayoutWrapper = styled.div`
   .tns-nav {
     position: absolute;
     bottom: 0;
-    right:0;
-    left:0;
+    right: 0;
+    left: 0;
     width: fit-content;
     margin: auto;
     z-index: 1;
 
-    button{
+    button {
       background-color: #9f9f9f9f;
       width: 10px;
       height: 10px;
       border-radius: 30px;
       margin-right: 5px;
-      &.tns-nav-active{
+      &.tns-nav-active {
         background: #fff;
         width: 20px;
       }
@@ -148,7 +148,6 @@ export const SlideTextWrapper = styled.div`
       gap: 30px;
       border-radius: 30px;
       align-items: center;
-    
     }
   }
 
@@ -200,7 +199,7 @@ export const SlideImg = styled.div`
   backdrop-filter: blur(12.5px);
   -webkit-backdrop-filter: blur(12.5px);
   border: 1px solid rgba(48, 48, 48, 0.71);
-  
+
   &:hover {
     border: 1px solid rgb(92 92 92 / 71%);
   }

@@ -7,13 +7,12 @@ import * as S from './styles'
 
 const Footer = ({ footer }) => (
   <S.Wrapper>
-    <div 
-      className='footer-bg absolute w-full h-full z-0 bg-blend-color mt-[-30px]' 
-      style={{ background: `url(${backImg.src}), rgb(17 17 17 / 86%)` }} 
-    >     
-    </div>
+    <div
+      className="footer-bg absolute w-full h-full z-0 bg-blend-color mt-[-30px]"
+      style={{ background: `url(${backImg.src}), rgb(17 17 17 / 86%)` }}
+    />
     <Container>
-      <div className='footer-wrapper'>
+      <div className="footer-wrapper">
         <S.SocialLogoArea>
           <Image src={footer?.logoFooter?.asset?.url} width={150} height={50} />
           <div className="flex">

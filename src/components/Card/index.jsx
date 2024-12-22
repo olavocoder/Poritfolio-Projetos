@@ -2,7 +2,7 @@ import { Card, Text, Image, Box } from '@chakra-ui/react'
 import { Button } from '../ui/button'
 import * as S from './styles'
 import { useEffect, useState } from 'react'
-import { HiArrowSmRight } from "react-icons/hi";
+import { HiArrowSmRight } from 'react-icons/hi'
 
 export default function CardWraper({ data, direction = 'vertical' }) {
   const isDirection = direction !== 'vertical'
@@ -53,13 +53,14 @@ export default function CardWraper({ data, direction = 'vertical' }) {
           <Text className="date-day font-bold">{day}</Text>
           <Text className="date-year text-slate-400">{year}</Text>
         </div>
-        <Box padding={'4'} className='card-body'>
+        <Box padding={'4'} className="card-body">
           <Card.Body gap="2">
             <Text className="font-bold">{data?.title}</Text>
             <Text>{data?.description}</Text>
           </Card.Body>
           <Card.Footer>
-            <Button className="font-semibold">Leia mais</Button><HiArrowSmRight />
+            <Button className="font-semibold"> Leia mais </Button>
+            <HiArrowSmRight />
           </Card.Footer>
         </Box>
       </Card.Root>

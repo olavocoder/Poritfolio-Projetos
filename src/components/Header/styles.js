@@ -1,6 +1,4 @@
 import styled from 'styled-components'
-
-import { devices } from '../../styles/utils/devices'
 import { Container } from '../Container'
 
 export const Wrapper = styled.header`
@@ -49,7 +47,7 @@ export const MenuList = styled.nav`
     font-weight: 600;
   }
 
-  @media(min-width: 1200px){
+  @media (min-width: 1200px) {
     display: flex;
   }
 `

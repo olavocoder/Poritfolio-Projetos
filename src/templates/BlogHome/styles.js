@@ -8,17 +8,17 @@ export const Wrapper = styled.div`
     height: 350px;
   }
 
-  @media(min-width: 1000px){
-    .tns-nav{
+  @media (min-width: 1000px) {
+    .tns-nav {
       margin: -80px auto;
     }
   }
 
   @media (min-width: 1200px) {
-    .tns-inner{
+    .tns-inner {
       width: 100%;
     }
-    .tns-nav{
+    .tns-nav {
       margin: -20px auto;
     }
   }
@@ -30,9 +30,10 @@ export const Wrapper = styled.div`
     gap: 0;
     flex-direction: column;
     height: 349px;
-    cursor: url(https://play.vsthemes.org/t-cursors/36701/6c24c665bde4efc5166fe06fc4394471.webp), pointer;
-    
-    div{
+    cursor: url(https://play.vsthemes.org/t-cursors/36701/6c24c665bde4efc5166fe06fc4394471.webp),
+      pointer;
+
+    div {
       padding: 10px 20px;
     }
 
@@ -52,12 +53,12 @@ export const Wrapper = styled.div`
       transition: 0.3s all;
     }
 
-    &:hover{
-      img{
-        filter: drop-shadow(2px 4px 6px black) brightness(1.5)
+    &:hover {
+      img {
+        filter: drop-shadow(2px 4px 6px black) brightness(1.5);
       }
     }
-    
+
     @media (min-width: 1200px) {
       flex-direction: row;
       gap: 30px;

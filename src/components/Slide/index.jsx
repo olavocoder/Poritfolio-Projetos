@@ -1,13 +1,8 @@
-import { ArrowIconDark } from '../../assets/icons'
-import { useWindowSize } from '../../hooks/useWindowSize'
-import { size } from '../../styles/utils/devices'
 import Card from '../Card'
 import * as S from './styles'
 import Image from 'next/image'
 
 export default function Slide({ dataSlide, className, type }) {
-  const { width } = useWindowSize()
-
   // Cria um array bi-dimensional separando os cards para cada wrapper do slide
   function ChangeNumbersCardsContent(arr, lengthArr) {
     let subarrays = []
@@ -45,16 +40,12 @@ export default function Slide({ dataSlide, className, type }) {
 }
 
 function LayoutWrapperSlide({ type, content, className }) {
-  console.log('conteudo', content)
   switch (type) {
     case 'banner':
       return (
         <div className={`slideWrapper ${className} layout-slideText`}>
           {content?.map((contentItem, contentIndex) => (
-            <div
-              className="slideItem"
-              key={contentIndex}
-            >
+            <div className="slideItem" key={contentIndex}>
               <div className="slideItem-wrapper">
                 <Image
                   src={contentItem?.mainImage?.asset?.url}

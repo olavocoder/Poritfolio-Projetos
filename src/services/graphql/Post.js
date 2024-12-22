@@ -8,7 +8,8 @@ function AddQuerys(slug = null, filter = null, cat = null, pag = 0) {
   const sortQuery = `sort:${filter}`
   const whereQuery = `where:{${cat ? catPost : titlePost}}`
   if (!isWhere && !filter) return `(limit: 5, offset: ${pag} )`
-  if (isWhere && filter) return `(${sortQuery}, ${whereQuery}, limit: 5, offset: ${pag})`
+  if (isWhere && filter)
+    return `(${sortQuery}, ${whereQuery}, limit: 5, offset: ${pag})`
   if (filter && !isWhere) return `(${sortQuery}, limit: 5, offset: ${pag})`
   if (isWhere && !filter) return `(${whereQuery}, limit: 5, offset: ${pag})`
 }

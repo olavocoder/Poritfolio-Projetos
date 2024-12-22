@@ -7,18 +7,16 @@ import FilterPosts from '../../components/FilterPosts'
 import { useState, useEffect } from 'react'
 import { getPost } from '../../services/wordpress'
 import PaginationPosts from '../../components/PaginationPosts'
-import Newsletter from '../../components/Newsletter'
 import backImg from '../../assets/backImage.jpg'
 import Loading from '../../components/Loading'
 
 export default function BlogHomeTemplate({ header, post, categories }) {
   const totalPosts = 5
-  const [ cat, setCat ] = useState(null)
-  const [ postsApi, setPostsApi ] = useState(null)
-  const [ pag, setPag ] = useState(0)
-  const [ isContinue, setIsContinue ] = useState(false)
-  const [ isLoading, setIsLoading ] = useState(false) 
-
+  const [cat, setCat] = useState(null)
+  const [postsApi, setPostsApi] = useState(null)
+  const [pag, setPag] = useState(0)
+  const [isContinue, setIsContinue] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
   function ConditionPagination(nextPostProp) {
     nextPostProp.length == 0 ? setIsContinue(true) : setIsContinue(false)
@@ -36,7 +34,7 @@ export default function BlogHomeTemplate({ header, post, categories }) {
     }
 
     GetPostsFilter()
-  }, [ cat, pag ])
+  }, [cat, pag])
 
   useEffect(() => {
     async function InitValidationPag() {
@@ -45,20 +43,22 @@ export default function BlogHomeTemplate({ header, post, categories }) {
     }
 
     InitValidationPag()
-  }, [ post ])
+  }, [post])
 
   return (
     <Base data={post} header={header} slideClass={['heroSlide']}>
       <S.Wrapper>
-        <div className='lg:h-[90vh] flex items-center bg-fixed bg-cover pt-20 rounded-b-[32px]' style={{ backgroundImage: `url(${backImg.src})` }}>
+        <div
+          className="lg:h-[90vh] flex items-center bg-fixed bg-cover pt-20 rounded-b-[32px]"
+          style={{ backgroundImage: `url(${backImg.src})` }}
+        >
           <Container>
             {post && (
               <Slide dataSlide={post} className="heroSlide" type="banner" />
             )}
           </Container>
         </div>
-        <Container className='my-9'>
-
+        <Container className="my-9">
           {categories && (
             <FilterPosts categories={categories} setCat={setCat}></FilterPosts>
           )}
@@ -68,21 +68,22 @@ export default function BlogHomeTemplate({ header, post, categories }) {
               ? post?.map((data, index) => (
                   <CardWrapper data={data} direction="vertical" key={index} />
                 ))
-              : postsApi?.map((data, index) => (<>
-                  <CardWrapper data={data} direction="vertical" key={index} /></>
+              : postsApi?.map((data, index) => (
+                  <>
+                    <CardWrapper data={data} direction="vertical" key={index} />
+                  </>
                 ))}
           </div>
-          {isLoading && (<Loading />)}
+          {isLoading && <Loading />}
           <PaginationPosts
             pag={pag}
             setPag={setPag}
             isContinue={isContinue}
             totalPosts={totalPosts}
           />
-
         </Container>
-        <div className='bg-black'>
-          <div className='h-10 rounded-b-3xl bg-white'></div>
+        <div className="bg-black">
+          <div className="h-10 rounded-b-3xl bg-white"></div>
         </div>
       </S.Wrapper>
     </Base>

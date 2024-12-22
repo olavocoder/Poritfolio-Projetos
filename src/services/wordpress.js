@@ -27,7 +27,7 @@ export async function getHome() {
 export async function getPost(slug = null, filter = null, cat = null, pag = 0) {
   try {
     const response = await wordpressApi.query({
-      query: PostApi({ slug: slug, filter: filter, cat : cat , pag : pag})
+      query: PostApi({ slug: slug, filter: filter, cat: cat, pag: pag })
     })
     return response.data.allPost
   } catch (error) {
@@ -42,7 +42,6 @@ export async function getSearch(title = null) {
     const response = await wordpressApi.query({
       query: SearchApi(title)
     })
-    console.log('resposta requisicao', response)
     return response.data.allPost
   } catch (error) {
     console.error(error)
