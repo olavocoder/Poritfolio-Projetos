@@ -56,6 +56,7 @@ export const PostApi = ({ slug, filter, cat, pag }) => gql`
       postsRelateds {
         title
         description
+        publishedAt
         slug {
           current
         }
