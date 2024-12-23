@@ -13,7 +13,7 @@ export const SetupTns = ({ className }) => {
                 slideBy: 'page',
                 navContainer: false,
                 loop: true,
-                autoplay: true
+                autoplay: false
               });
             `
       }}

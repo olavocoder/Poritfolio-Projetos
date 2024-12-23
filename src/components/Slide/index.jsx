@@ -1,8 +1,8 @@
-import Card from '../Card'
+import CardWraper from '../Card'
 import * as S from './styles'
 import Image from 'next/image'
 
-export default function Slide({ dataSlide, className, type }) {
+export default function Slide({ dataSlide, className, type, nItems = 3 }) {
   // Cria um array bi-dimensional separando os cards para cada wrapper do slide
   function ChangeNumbersCardsContent(arr, lengthArr) {
     let subarrays = []
@@ -13,7 +13,7 @@ export default function Slide({ dataSlide, className, type }) {
   }
 
   // Gera o array bidimensional para desktop
-  const contentDesk = ChangeNumbersCardsContent(dataSlide, 3)
+  const contentDesk = ChangeNumbersCardsContent(dataSlide, nItems)
 
   return (
     <S.LayoutWrapper>
@@ -75,7 +75,7 @@ function LayoutWrapperSlide({ type, content, className }) {
             >
               <div className="slide-cardWrapper">
                 {contentItem?.map((item, index) => (
-                  <Card data={item} key={index} />
+                  <CardWraper data={item} key={index} className="slide-card" />
                 ))}
               </div>
             </div>

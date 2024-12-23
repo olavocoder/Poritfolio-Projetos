@@ -5,29 +5,31 @@ import { Card, Text, Image, Box, Heading } from '@chakra-ui/react'
 
 const Sidebar = ({ data }) => {
   return (
-    <S.Wrapper>
-      <h4 className="h4">Categorias</h4>
-      <div className="sidebar-categories">
-        {data?.categories?.map((item, index) => (
-          <Button key={index}>{item?.title}</Button>
-        ))}
-      </div>
-      <h4 className="h4">Veja Tambem</h4>
+    <S.Wrapper className="hidden lg:block">
+      <h4 className="h4">Veja Tambem:</h4>
       <div>
         {data?.sidebarCards?.map((item, index) => (
-          <Card.Root mb={4} key={index}>
+          <Card.Root
+            className="card-sidebar mb-4 bg-white text-black border-none"
+            key={index}
+          >
             <Image
+              className="rounded-lg"
               src={item?.imageCard?.asset?.url}
               width={'1/1'}
               height={'150px'}
             />
-            <Box px={4} py={2}>
+            <Box px={2} py={2}>
               <Card.Body>
-                <Heading as={'h4'}>{item?.title}</Heading>
+                <Heading className="text-base mb-3" as={'h4'}>
+                  {item?.title}
+                </Heading>
                 <Text>{item?.description}</Text>
               </Card.Body>
               <Card.Footer>
-                <Button href={item?.button}>Click Me</Button>
+                <Button className={'font-semibold'} href={item?.button}>
+                  Acesse Agora
+                </Button>
               </Card.Footer>
             </Box>
           </Card.Root>

@@ -4,12 +4,15 @@ import * as S from './styles'
 import { useEffect, useState } from 'react'
 import { HiArrowSmRight } from 'react-icons/hi'
 
-export default function CardWraper({ data, direction = 'vertical' }) {
+export default function CardWraper({
+  data,
+  direction = 'vertical',
+  className = ''
+}) {
   const isDirection = direction !== 'vertical'
   const [day, setDay] = useState(null)
   const [month, setMonth] = useState(null)
   const [year, setYear] = useState(null)
-
   const MonthAbr = [
     'Jan',
     'Fev',
@@ -33,7 +36,7 @@ export default function CardWraper({ data, direction = 'vertical' }) {
   }, [data])
 
   return (
-    <S.LayoutWrapper>
+    <S.LayoutWrapper className={className}>
       <Card.Root
         className="bg-white text-black border-none relative"
         my={isDirection ? 8 : 0}
