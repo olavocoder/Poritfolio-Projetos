@@ -45,7 +45,6 @@ export const LayoutWrapper = styled.div`
   }
 
   @media ${devices.tabletL} {
-    height: 40vh;
     padding: 0;
     background-color: transparent;
   }

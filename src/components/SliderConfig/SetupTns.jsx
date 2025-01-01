@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-export const SetupTns = ({ className }) => {
+export const SetupTns = ({ className, classBtn = '' }) => {
   return (
     <Script
       className={className}
@@ -13,7 +13,9 @@ export const SetupTns = ({ className }) => {
                 slideBy: 'page',
                 navContainer: false,
                 loop: true,
-                autoplay: false
+                autoplay: true,
+                ${classBtn !== '' ? `prevButton: '.${classBtn}_left',` : ''}
+                ${classBtn !== '' ? `nextButton: '.${classBtn}_right'` : ''}
               });
             `
       }}

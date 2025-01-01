@@ -1,6 +1,7 @@
 import CardWraper from '../Card'
 import * as S from './styles'
 import Image from 'next/image'
+import { SetupTns } from '../SliderConfig/SetupTns'
 
 export default function Slide({ dataSlide, className, type, nItems = 3 }) {
   // Cria um array bi-dimensional separando os cards para cada wrapper do slide
@@ -16,26 +17,29 @@ export default function Slide({ dataSlide, className, type, nItems = 3 }) {
   const contentDesk = ChangeNumbersCardsContent(dataSlide, nItems)
 
   return (
-    <S.LayoutWrapper>
-      {contentDesk && (
-        <S.SlideTextWrapper>
-          {dataSlide && type == 'card' && (
-            <LayoutWrapperSlide
-              type={'card'}
-              content={contentDesk}
-              className={className}
-            />
-          )}
-          {dataSlide && type == 'banner' && (
-            <LayoutWrapperSlide
-              type={'banner'}
-              content={dataSlide}
-              className={className}
-            />
-          )}
-        </S.SlideTextWrapper>
-      )}
-    </S.LayoutWrapper>
+    <>
+      <S.LayoutWrapper>
+        {contentDesk && (
+          <S.SlideTextWrapper>
+            {dataSlide && type == 'card' && (
+              <LayoutWrapperSlide
+                type={'card'}
+                content={contentDesk}
+                className={className}
+              />
+            )}
+            {dataSlide && type == 'banner' && (
+              <LayoutWrapperSlide
+                type={'banner'}
+                content={dataSlide}
+                className={className}
+              />
+            )}
+          </S.SlideTextWrapper>
+        )}
+      </S.LayoutWrapper>
+      <SetupTns className={className} />
+    </>
   )
 }
 
