@@ -24,13 +24,10 @@ export const GeralApi = (slug) => gql`
         }
       }
       Menu{
-        title
-        categories{
           title
           slug{
             current
           }
-        }
       }
     }
   }

@@ -36,18 +36,11 @@ export const ContainerHeader = styled(Container)`
   }
 `
 export const MenuList = styled.nav`
-  display: none;
-  align-items: center;
-
-  ul {
+  a {
     margin-left: 25px;
     cursor: pointer;
     color: #fff;
     text-transform: uppercase;
     font-weight: 600;
-  }
-
-  @media (min-width: 1200px) {
-    display: flex;
   }
 `

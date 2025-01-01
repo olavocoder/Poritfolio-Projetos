@@ -23,6 +23,6 @@ export const clientSanity = createClient({
   projectId: 'lxpq608x',
   apiVersion: '2023-08-01',
   dataset: 'production',
-  token: `${process.env.SANITY_API_KEY_EDITOR}`, // Opcional, necessário se você configurou autenticação
+  token: `${process.env.NEXT_PUBLIC_SANITY_API_KEY_EDITOR}`, // Opcional, necessário se você configurou autenticação
   useCdn: true // Configuração opcional para evitar o uso de cache CDN
 })

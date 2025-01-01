@@ -3,9 +3,9 @@ import { Button } from '../ui/button'
 import * as S from './styles'
 import { Card, Text, Image, Box, Heading } from '@chakra-ui/react'
 
-const Sidebar = ({ data }) => {
+const Sidebar = ({ data, className = 'hidden' }) => {
   return (
-    <S.Wrapper className="hidden lg:block">
+    <S.Wrapper className={`${className} lg:block`}>
       <h4 className="h4">Veja Tambem:</h4>
       <div>
         {data?.sidebarCards?.map((item, index) => (

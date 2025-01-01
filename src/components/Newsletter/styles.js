@@ -12,6 +12,18 @@ export const Wrapper = styled.div`
       font-weight: 700;
     }
   }
+  .news-check {
+    .chakra-checkbox__control {
+      outline: none;
+      border-color: #fff;
+    }
+
+    &.notCheck {
+      .chakra-checkbox__control {
+        border-color: #ef4444;
+      }
+    }
+  }
   span {
     margin: 0 10px;
   }

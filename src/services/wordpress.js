@@ -42,7 +42,7 @@ export async function getSearch(title = null) {
     const response = await wordpressApi.query({
       query: SearchApi(title)
     })
-    return response.data.allPost
+    return title ? response.data.allPost : null
   } catch (error) {
     console.error(error)
     return []
@@ -141,6 +141,19 @@ export async function SendViewsPost(post) {
     const response = await clientSanity
       .patch(post['_id'])
       .inc(newViewSchema)
+      .commit('', { dryRun: false })
+    return response
+  } catch (err) {
+    console.log(err, 'não conseguiu receber a requisicao')
+  }
+}
+
+//codigo para o envio de numero de visualizações da pagina de post
+export async function SendEmailsPost(email) {
+  try {
+    const response = await clientSanity
+      .patch('4d7c5a8f-156c-4d5d-8dab-29758c2da5ce')
+      .append('emails', [email])
       .commit('', { dryRun: false })
     return response
   } catch (err) {
