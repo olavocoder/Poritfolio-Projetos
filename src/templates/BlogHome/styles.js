@@ -71,7 +71,7 @@ export const Wrapper = styled.div`
       img {
         border-radius: 30px 0 0 30px;
         width: 500px;
-        height: auto;
+        height: 100%;
       }
     }
   }
