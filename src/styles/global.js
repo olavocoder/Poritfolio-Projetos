@@ -19,16 +19,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      cursor: url(https://play.vsthemes.org/t-cursors/15044/3c05433e99da09415a6fbe7801e76124.webp),
-        auto;
       font-family: ${theme.font.family.normal};
       width: 100%;
       overflow-x: hidden;
       button,
-      a {
-        cursor: url(https://play.vsthemes.org/t-cursors/36701/6c24c665bde4efc5166fe06fc4394471.webp),
-          pointer;
-      }
       &.no-scroll {
         overflow: hidden;
       }

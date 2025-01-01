@@ -212,5 +212,18 @@ export const Wrapper = styled.button`
 
     ${size === 'medium' &&
     wrapperModifiers['padds'](theme, icon, position, 'xsmallM', 'medium')};
+
+    &.header-btn {
+      display: none;
+      background: #040404;
+      border: none;
+      &:hover {
+        background: #232323;
+      }
+
+      @media (min-width: 1200px) {
+        display: inline-flex;
+      }
+    }
   `}
 `

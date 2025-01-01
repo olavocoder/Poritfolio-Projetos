@@ -53,10 +53,12 @@ function LayoutWrapperSlide({ type, content, className }) {
                   height="400"
                 />
                 <div>
-                  <a href={`/${contentItem?.category?.slug?.current}`}>
+                  <a href={`/blog/${contentItem?.category?.slug?.current}`}>
                     {contentItem?.category?.title}
                   </a>
-                  <h2>{contentItem?.title}</h2>
+                  <a href={`/blog/${contentItem?.slug?.current}`}>
+                    <h2 className="capitalize">{contentItem?.title}</h2>
+                  </a>
                 </div>
               </div>
             </div>
