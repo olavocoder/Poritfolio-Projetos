@@ -15,7 +15,7 @@ const Sidebar = ({ data, className = 'hidden' }) => {
           >
             <Image
               className="rounded-lg"
-              src={item?.imageCard?.asset?.url}
+              src={item?.mainImage?.asset?.url}
               width={'1/1'}
               height={'150px'}
             />

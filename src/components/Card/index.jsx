@@ -63,7 +63,6 @@ export default function CardWraper({
           </Card.Body>
           <Card.Footer>
             <Button className="font-semibold">
-              {' '}
               <a href={`/blog/${data?.slug?.current}`}>Leia mais</a>{' '}
             </Button>
             <HiArrowSmRight />
