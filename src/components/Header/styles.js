@@ -40,7 +40,7 @@ export const MenuList = styled.nav`
     margin-left: 25px;
     cursor: pointer;
     color: #fff;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 600;
   }
 `

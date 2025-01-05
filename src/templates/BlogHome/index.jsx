@@ -9,15 +9,16 @@ import { getPost } from '../../services/wordpress'
 import PaginationPosts from '../../components/PaginationPosts'
 import backImg from '../../assets/backImage.jpg'
 import Loading from '../../components/Loading'
+import Banner from '../../components/Banner'
 
-export default function BlogHomeTemplate({ header, post, categories }) {
+export default function BlogHomeTemplate({ header, post, categories, data }) {
   const totalPosts = 5
   const [cat, setCat] = useState(null)
   const [postsApi, setPostsApi] = useState(null)
   const [pag, setPag] = useState(0)
   const [isContinue, setIsContinue] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-
+  console.log('dados banner', data)
   function ConditionPagination(nextPostProp) {
     nextPostProp.length == 0 ? setIsContinue(true) : setIsContinue(false)
   }
@@ -81,6 +82,7 @@ export default function BlogHomeTemplate({ header, post, categories }) {
             isContinue={isContinue}
             totalPosts={totalPosts}
           />
+          {data?.banners && <Banner data={data?.banners[0]} />}
         </Container>
         <div className="bg-black">
           <div className="h-10 rounded-b-3xl bg-white"></div>

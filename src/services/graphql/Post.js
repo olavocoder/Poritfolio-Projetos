@@ -46,9 +46,10 @@ export const PostApi = ({ slug, filter, cat, pag }) => gql`
       sidebarCards {
         title
         description
-        button
-        imageCard {
-          asset {
+        textButton
+      	linkButton
+      	mainImage{
+          asset{
             url
           }
         }
