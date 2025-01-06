@@ -43,17 +43,6 @@ export const PostApi = ({ slug, filter, cat, pag }) => gql`
       slug {
         current
       }
-      sidebarCards {
-        title
-        description
-        textButton
-      	linkButton
-      	mainImage{
-          asset{
-            url
-          }
-        }
-      }
       postsRelateds {
         title
         description

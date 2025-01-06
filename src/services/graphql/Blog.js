@@ -6,6 +6,7 @@ export const BlogApi = gql`
       title
       name
       description
+      active
       banners {
         title
         description

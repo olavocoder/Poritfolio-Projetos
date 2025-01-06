@@ -15,7 +15,7 @@ export default function LayoutBanner({ background, data, direction }) {
           <h2>{data?.name}</h2>
           <p>{data?.description}</p>
 
-          <S.ButtonLayout>
+          <S.ButtonLayout className={data?.active ? 'opacity-1' : 'opacity-0'}>
             <p>Acesse</p>
             <ArrowIconDark
               width={width < size.laptopM ? 35 : 55}
