@@ -72,7 +72,9 @@ export const ButtonLayout = styled.div`
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  opacity: 0;
+  p {
+    margin: 0;
+  }
 `
 
 export const SlideTextWrapper = styled.div`

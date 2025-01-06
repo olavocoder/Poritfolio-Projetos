@@ -5,6 +5,17 @@ export const GeralApi = (slug) => gql`
     allGeral(where: { title: { eq: "${slug}" } }) {
       title
       policyText
+      sidebarCards {
+        title
+        description
+        textButton
+      	linkButton
+      	mainImage{
+          asset{
+            url
+          }
+        }
+      }
       logoFooter{
         asset{
           url

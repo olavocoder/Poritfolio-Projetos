@@ -18,7 +18,7 @@ export default function BlogHomeTemplate({ header, post, categories, data }) {
   const [pag, setPag] = useState(0)
   const [isContinue, setIsContinue] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  console.log('dados banner', data)
+
   function ConditionPagination(nextPostProp) {
     nextPostProp.length == 0 ? setIsContinue(true) : setIsContinue(false)
   }

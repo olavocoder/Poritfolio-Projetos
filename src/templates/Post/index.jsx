@@ -34,7 +34,7 @@ export default function PostTemplate({ post, header }) {
       </Button>
       <S.ContainerWrapper>
         <S.ContentArea>
-          <div className={`w-full ${post?.sidebarCards && 'lg:w-[800px]'}`}>
+          <div className={`w-full ${header?.sidebarCards && 'lg:w-[800px]'}`}>
             {post?.mainImage?.asset?.url && (
               <img
                 className="post-image rounded-[20px]"
@@ -63,8 +63,8 @@ export default function PostTemplate({ post, header }) {
               />
             )}
           </div>
-          {post?.sidebarCards && (
-            <Sidebar data={post} className={!active ? 'hidden' : 'block'} />
+          {header?.sidebarCards && (
+            <Sidebar data={header} className={!active ? 'hidden' : 'block'} />
           )}
         </S.ContentArea>
       </S.ContainerWrapper>
