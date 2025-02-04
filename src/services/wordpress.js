@@ -24,12 +24,11 @@ export async function getHome() {
 }
 
 // Faz requisicao dos dados principais dos posts
-export async function getPost(slug = null, filter = null) {
+export async function getPost(slug = null, filter = null, cat = null, pag = 0) {
   try {
     const response = await wordpressApi.query({
-      query: PostApi({ slug: slug, filter: filter })
+      query: PostApi({ slug: slug, filter: filter, cat: cat, pag: pag })
     })
-    console.log(response.errors)
     return response.data.allPost
   } catch (error) {
     console.error(error)
@@ -43,8 +42,7 @@ export async function getSearch(title = null) {
     const response = await wordpressApi.query({
       query: SearchApi(title)
     })
-    console.log('resposta requisicao', response)
-    return response.data.allPost
+    return title ? response.data.allPost : null
   } catch (error) {
     console.error(error)
     return []
@@ -57,7 +55,6 @@ export async function getCategories(slug = null, filter = null) {
     const response = await wordpressApi.query({
       query: CategoryApi({ slug: slug, filter: filter })
     })
-    console.log(response.errors)
     return response.data.allCategory
   } catch (error) {
     console.error(error)
@@ -144,6 +141,19 @@ export async function SendViewsPost(post) {
     const response = await clientSanity
       .patch(post['_id'])
       .inc(newViewSchema)
+      .commit('', { dryRun: false })
+    return response
+  } catch (err) {
+    console.log(err, 'não conseguiu receber a requisicao')
+  }
+}
+
+//codigo para o envio de numero de visualizações da pagina de post
+export async function SendEmailsPost(email) {
+  try {
+    const response = await clientSanity
+      .patch('4d7c5a8f-156c-4d5d-8dab-29758c2da5ce')
+      .append('emails', [email])
       .commit('', { dryRun: false })
     return response
   } catch (err) {

@@ -1,5 +1,11 @@
-import { getGeral, getPost } from '../../services/wordpress'
+import {
+  getGeral,
+  getPost,
+  getCategories,
+  getBlogPage
+} from '../../services/wordpress'
 import BlogHomeTemplate from '../../templates/BlogHome'
+
 export default function BlogHome(data) {
   return <BlogHomeTemplate {...data} />
 }
@@ -7,8 +13,9 @@ export default function BlogHome(data) {
 export async function getStaticProps() {
   const header = await getGeral('Blog')
   // filters attributes views and _updateAt
-  const post = await getPost(null, `[{ _updatedAt: ASC }, { views: ASC }]`)
-
+  const post = await getPost()
+  const categories = await getCategories()
+  const data = await getBlogPage()
   // const data = categories
 
   // go to notfound
@@ -29,7 +36,9 @@ export async function getStaticProps() {
     props: {
       header,
       seo,
-      post
+      post,
+      categories,
+      data
     }
   }
 }

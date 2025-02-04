@@ -21,15 +21,18 @@ export const ContentBanner = styled(Container)`
   text-align: center;
   justify-content: center;
   width: 100%;
+
   p,
   h1 {
     margin-bottom: 47px;
   }
+
   h1 {
     font-size: 42px;
     line-height: 59px;
     font-weight: 400;
   }
+
   p {
     font-weight: 400;
     font-size: 14px;
@@ -49,7 +52,30 @@ export const ContainerWrapper = styled(Container)`
 export const ContentArea = styled.main`
   display: flex;
   justify-content: space-between;
+
   .content {
     width: 800px;
+  }
+
+  .post-image {
+    margin-top: 50px;
+    width: 100%;
+    height: auto;
+    box-shadow: 7px 8px 5px #cdcdcb;
+  }
+
+  .slide-card {
+    width: 246px;
+    flex-wrap: wrap;
+  }
+
+  .tns-inner {
+    width: 300px;
+  }
+
+  @media (min-width: 1200px) {
+    .tns-inner {
+      width: 800px;
+    }
   }
 `

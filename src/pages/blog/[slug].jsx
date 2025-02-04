@@ -1,9 +1,4 @@
-import {
-  getPost,
-  SendViewsPost,
-  getCategories,
-  getGeral
-} from '../../services/wordpress'
+import { getPost, getCategories, getGeral } from '../../services/wordpress'
 import CategoryTemplate from '../../templates/Category'
 import PostTemplate from '../../templates/Post'
 
@@ -24,17 +19,23 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  // retorna informações de blog Geral
+  // return informations of geral blog
   const header = await getGeral('Blog')
 
-  //retorna informações de posts do blog
+  // return informations of blog posts
   let post = await getPost(params.slug, null)
   let categories = await getCategories(params.slug, null)
-  post = post[0] ? post : categories
-  // Envia numero de views da pagina
+  let postsList = []
+
+  if (!post[0]) {
+    post = categories
+    postsList = await getPost(null, null, params.slug)
+  }
+
   post = post[0]
-  const responseSend = post ? await SendViewsPost(post) : null
-  console.log('response', responseSend)
+
+  // send numbers of views pages
+  //const responseSend = post ? await SendViewsPost(post) : null
 
   const seo = {
     title: 'Home',
@@ -47,6 +48,7 @@ export async function getStaticProps({ params }) {
     props: {
       seo,
       post,
+      postsList,
       header
     }
   }

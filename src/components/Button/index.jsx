@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import * as S from './styles'
 
 const Button = ({
+  className,
   children,
   icon,
   variant,
@@ -32,6 +33,7 @@ const Button = ({
 
   return (
     <S.Wrapper
+      className={className}
       variant={variant}
       palette={palette}
       hover={hover}

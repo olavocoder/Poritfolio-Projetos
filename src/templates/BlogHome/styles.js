@@ -2,7 +2,80 @@ import styled from 'styled-components'
 
 import { Container } from '../../components/Container'
 import { devices } from '../../styles/utils/devices'
-export const Wrapper = styled.div``
+export const Wrapper = styled.div`
+  .tns-inner {
+    width: 320px;
+    height: 350px;
+  }
+
+  @media (min-width: 1000px) {
+    .tns-nav {
+      margin: -80px auto;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .tns-inner {
+      width: 100%;
+    }
+    .tns-nav {
+      margin: -20px auto;
+    }
+  }
+
+  .slideItem-wrapper {
+    background-color: #ffffff00;
+    backdrop-filter: blur(15px);
+    box-shadow: inset -2px 0px 3px #8a8a8a;
+    gap: 0;
+    flex-direction: column;
+    height: 349px;
+    cursor: url(https://play.vsthemes.org/t-cursors/36701/6c24c665bde4efc5166fe06fc4394471.webp),
+      pointer;
+
+    div {
+      padding: 10px 20px;
+    }
+
+    a {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    img {
+      width: 100%;
+      height: 210px;
+      border-radius: 30px 30px 0 0;
+      object-fit: cover;
+      object-position: top;
+      filter: drop-shadow(2px 4px 6px black) brightness(1);
+      transition: 0.3s all;
+    }
+
+    &:hover {
+      img {
+        filter: drop-shadow(2px 4px 6px black) brightness(1.5);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      gap: 30px;
+      height: 280px;
+
+      h2 {
+        font-size: 40px;
+        font-weight: 700;
+      }
+      img {
+        border-radius: 30px 0 0 30px;
+        width: 500px;
+        height: 100%;
+      }
+    }
+  }
+`
 
 export const Banner = styled.div`
   ${({ back }) => `background-image: url('${back}');`}

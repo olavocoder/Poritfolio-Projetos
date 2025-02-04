@@ -16,8 +16,8 @@ export const CategoryApi = ({ slug, filter }) => gql`
       _id
       _type
       _updatedAt
-      views
       title
+      description
       slug{
         current
       }

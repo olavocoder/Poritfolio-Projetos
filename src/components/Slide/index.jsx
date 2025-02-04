@@ -1,12 +1,9 @@
-import { ArrowIconDark } from '../../assets/icons'
-import { useWindowSize } from '../../hooks/useWindowSize'
-import { size } from '../../styles/utils/devices'
-import Card from '../Card'
+import CardWraper from '../Card'
 import * as S from './styles'
+import Image from 'next/image'
+import { SetupTns } from '../SliderConfig/SetupTns'
 
-export default function Slide({ dataSlide, className, type }) {
-  const { width } = useWindowSize()
-
+export default function Slide({ dataSlide, className, type, nItems = 3 }) {
   // Cria um array bi-dimensional separando os cards para cada wrapper do slide
   function ChangeNumbersCardsContent(arr, lengthArr) {
     let subarrays = []
@@ -17,41 +14,32 @@ export default function Slide({ dataSlide, className, type }) {
   }
 
   // Gera o array bidimensional para desktop
-  const contentDesk = ChangeNumbersCardsContent(dataSlide, 3)
+  const contentDesk = ChangeNumbersCardsContent(dataSlide, nItems)
 
   return (
-    <S.LayoutWrapper back={'#fff'}>
-      {contentDesk && (
-        <S.SlideTextWrapper>
-          <div className={`${className}_left slideArrow`}>
-            <ArrowIconDark
-              width={width < size.laptopM ? 35 : 55}
-              color={'#000'}
-            />
-          </div>
-          {dataSlide && type == 'card' && (
-            <LayoutWrapperSlide
-              type={'card'}
-              content={contentDesk}
-              className={className}
-            />
-          )}
-          {dataSlide && type == 'banner' && (
-            <LayoutWrapperSlide
-              type={'banner'}
-              content={dataSlide}
-              className={className}
-            />
-          )}
-          <div className={`${className}_right slideArrow`}>
-            <ArrowIconDark
-              width={width < size.laptopM ? 35 : 55}
-              color={'#000'}
-            />
-          </div>
-        </S.SlideTextWrapper>
-      )}
-    </S.LayoutWrapper>
+    <>
+      <S.LayoutWrapper>
+        {contentDesk && (
+          <S.SlideTextWrapper>
+            {dataSlide && type == 'card' && (
+              <LayoutWrapperSlide
+                type={'card'}
+                content={contentDesk}
+                className={className}
+              />
+            )}
+            {dataSlide && type == 'banner' && (
+              <LayoutWrapperSlide
+                type={'banner'}
+                content={dataSlide}
+                className={className}
+              />
+            )}
+          </S.SlideTextWrapper>
+        )}
+      </S.LayoutWrapper>
+      <SetupTns className={className} />
+    </>
   )
 }
 
@@ -61,15 +49,23 @@ function LayoutWrapperSlide({ type, content, className }) {
       return (
         <div className={`slideWrapper ${className} layout-slideText`}>
           {content?.map((contentItem, contentIndex) => (
-            <div
-              className="slideItem"
-              style={{
-                height: 'inherit',
-                color: '#000',
-                backgroundImage: `url(${contentItem?.mainImage?.asset?.url})`
-              }}
-              key={contentIndex}
-            />
+            <div className="slideItem" key={contentIndex}>
+              <div className="slideItem-wrapper">
+                <Image
+                  src={contentItem?.mainImage?.asset?.url}
+                  width="500"
+                  height="400"
+                />
+                <div>
+                  <a href={`/blog/${contentItem?.category?.slug?.current}`}>
+                    {contentItem?.category?.title}
+                  </a>
+                  <a href={`/blog/${contentItem?.slug?.current}`}>
+                    <h2 className="capitalize">{contentItem?.title}</h2>
+                  </a>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       )
@@ -85,7 +81,7 @@ function LayoutWrapperSlide({ type, content, className }) {
             >
               <div className="slide-cardWrapper">
                 {contentItem?.map((item, index) => (
-                  <Card data={item} key={index} />
+                  <CardWraper data={item} key={index} className="slide-card" />
                 ))}
               </div>
             </div>

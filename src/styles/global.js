@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
       font-family: ${theme.font.family.normal};
       width: 100%;
       overflow-x: hidden;
-
+      button,
       &.no-scroll {
         overflow: hidden;
       }

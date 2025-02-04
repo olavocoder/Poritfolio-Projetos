@@ -6,6 +6,18 @@ export const BlogApi = gql`
       title
       name
       description
+      active
+      banners {
+        title
+        description
+        linkButton
+        textButton
+        mainImage {
+          asset {
+            url
+          }
+        }
+      }
       banner {
         asset {
           url

@@ -4,11 +4,10 @@ import { NextSeo } from 'next-seo'
 
 import Footer from '../../components/Footer'
 import Header from '../../components/Header'
-import Tiny from '../../components/SliderConfig/Tiny'
 import { UseSeoTreated } from '../../hooks/useSeoTreated'
 import * as S from './styles'
 
-const Base = ({ children, seo, slideClass, header = null, data }) => {
+const Base = ({ children, seo, header = null }) => {
   const [seoTreated, setSeoTreated] = useState([])
   const [isHome, setIsHome] = useState(false)
 
@@ -16,6 +15,7 @@ const Base = ({ children, seo, slideClass, header = null, data }) => {
     const tempSeo = UseSeoTreated({ seo })
     setSeoTreated(tempSeo)
     if (window.location.pathname == '/') setIsHome(true)
+    if (window.location.pathname == '/blog') setIsHome(true)
   }, [seo])
 
   return (
@@ -47,11 +47,6 @@ const Base = ({ children, seo, slideClass, header = null, data }) => {
       )}
 
       {children}
-      {data && (
-        <>
-          <Tiny listClass={slideClass} />
-        </>
-      )}
       {header && <Footer footer={header} />}
     </S.Wrapper>
   )
